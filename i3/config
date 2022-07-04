@@ -165,7 +165,7 @@ bindsym $mod+r mode "resize"
 exec_always --no-startup-id nitrogen --restore
 
 # polybar 
-exec_always --no-startup-id " picom  --experimental-backends --backend glx"
+exec_always --no-startup-id " picom  --experimental-backends --backend xrender "
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 bindsym $mod+c exec networkmanager_dmenu
 
