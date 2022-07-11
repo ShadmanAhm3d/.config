@@ -6,8 +6,9 @@ font pango:Hack Nerd Font Regular 9
 
 exec --no-startup-id dex --autostart --environment i3
 
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
-
+#exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+exec --no-startup-id betterlockscreen --lock dim
+bindsym $mod+x exec betterlockscreen --lock dim
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
@@ -23,7 +24,7 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Shift+h exec nautilus
+bindsym $mod+h exec thunar 
 bindsym $mod+t exec terminator
 bindsym $mod+Shift+f exec firefox
 # kill focused window
@@ -57,10 +58,10 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+h split h
+# bindsym $mod+h split h
 
 # split in vertical orientation
-bindsym $mod+v split v
+# bindsym $mod+v split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -135,16 +136,17 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
 
-        bindsym j resize shrink width 10 px or 10 ppt
-        bindsym k resize grow height 10 px or 10 ppt
-        bindsym l resize shrink height 10 px or 10 ppt
-        bindsym semicolon resize grow width 10 px or 10 ppt
+        bindsym j resize shrink width 5px or 5ppt
+        bindsym k resize grow height 5px or 5ppt
+        bindsym l resize shrink height 5px or 5ppt
+        bindsym semicolon resize grow width 5px or 5ppt
 
         # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
+        bindsym Left resize shrink width 5px or 5ppt
+        bindsym Down resize grow height 5px or 5ppt
+        bindsym Up resize shrink height 5px or 5ppt
+        bindsym Right resize grow width 5px or 5ppt
+        
 
         # back to normal: Enter or Escape or $mod+r
         bindsym Return mode "default"

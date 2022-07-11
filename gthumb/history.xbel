@@ -3,11 +3,31 @@
       xmlns:bookmark="http://www.freedesktop.org/standards/desktop-bookmarks"
       xmlns:mime="http://www.freedesktop.org/standards/shared-mime-info"
 >
-  <bookmark href="file:///home/shaddy/Pictures/Screenshots" added="2022-06-29T13:06:33.370108Z" modified="2022-06-29T13:06:33.370114Z" visited="2022-06-29T13:06:33.370109Z">
+  <bookmark href="file:///home/shaddy/Pictures/Wallpapers" added="2022-07-10T12:57:54.039111Z" modified="2022-07-10T12:57:54.039129Z" visited="2022-07-10T12:57:54.039113Z">
     <info>
       <metadata owner="http://freedesktop.org">
         <bookmark:applications>
-          <bookmark:application name="gThumb" exec="&apos;gthumb %u&apos;" modified="2022-06-29T13:06:33.370111Z" count="1"/>
+          <bookmark:application name="gThumb" exec="&apos;gthumb %u&apos;" modified="2022-07-10T12:57:54.039120Z" count="1"/>
+        </bookmark:applications>
+        <bookmark:private/>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/shaddy/Pictures/Screenshots" added="2022-07-10T12:57:54.039136Z" modified="2022-07-10T12:57:54.039144Z" visited="2022-07-10T12:57:54.039137Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <bookmark:applications>
+          <bookmark:application name="gThumb" exec="&apos;gthumb %u&apos;" modified="2022-07-10T12:57:54.039141Z" count="1"/>
+        </bookmark:applications>
+        <bookmark:private/>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/shaddy/Downloads" added="2022-07-10T12:57:54.039150Z" modified="2022-07-10T12:57:54.039159Z" visited="2022-07-10T12:57:54.039151Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <bookmark:applications>
+          <bookmark:application name="gThumb" exec="&apos;gthumb %u&apos;" modified="2022-07-10T12:57:54.039155Z" count="1"/>
         </bookmark:applications>
         <bookmark:private/>
       </metadata>
