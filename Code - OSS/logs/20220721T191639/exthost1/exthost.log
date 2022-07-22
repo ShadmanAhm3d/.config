@@ -1,0 +1,14 @@
+[2022-07-21 19:16:48.928] [exthost] [info] Extension host with pid 64105 started
+[2022-07-21 19:16:48.928] [exthost] [info] Skipping acquiring lock for /home/shaddy/.config/Code - OSS/User/workspaceStorage/488f8ec28066006de72dd44ce642caf1.
+[2022-07-21 19:16:49.533] [exthost] [info] ExtensionService#_doActivateExtension vscode.debug-auto-launch, startup: true, activationEvent: '*'
+[2022-07-21 19:16:49.543] [exthost] [info] ExtensionService#_doActivateExtension vscode.git-base, startup: true, activationEvent: '*', root cause: vscode.git
+[2022-07-21 19:16:49.560] [exthost] [info] ExtensionService#_doActivateExtension vscode.ipynb, startup: true, activationEvent: '*'
+[2022-07-21 19:16:49.710] [exthost] [info] ExtensionService#_doActivateExtension vscode.git, startup: true, activationEvent: '*'
+[2022-07-21 19:16:49.845] [exthost] [info] ExtensionService#_doActivateExtension vscode.github, startup: true, activationEvent: '*'
+[2022-07-21 19:16:50.233] [exthost] [info] Eager extensions activated
+[2022-07-21 19:16:50.393] [exthost] [info] ExtensionService#_doActivateExtension vscode.emmet, startup: false, activationEvent: 'onStartupFinished'
+[2022-07-21 19:16:50.421] [exthost] [info] ExtensionService#_doActivateExtension vscode.merge-conflict, startup: false, activationEvent: 'onStartupFinished'
+[2022-07-21 19:21:52.025] [exthost] [info] ExtensionService#_doActivateExtension jsw.csharpextensions, startup: false, activationEvent: 'onLanguage:csharp'
+[2022-07-21 19:21:52.261] [exthost] [info] ExtensionService#_doActivateExtension muhammad-sammy.csharp, startup: false, activationEvent: 'onLanguage:csharp'
+[2022-07-21 19:24:47.578] [exthost] [info] Extension host terminating: received terminate message from renderer
+[2022-07-21 19:24:47.622] [exthost] [info] Extension host with pid 64105 exiting with code 0

@@ -1,0 +1,2 @@
+[2022-07-21 19:27:51.103] [renderer2] [error] [muhammad-sammy.csharp]: Unknown language in `contributes.csharp.language`. Provided value: csharp
+[2022-07-21 19:27:53.446] [renderer2] [warning] [backup tracker] suspended, ignoring dirty change event file:///home/shaddy/testiing/Program.cs 

@@ -28,7 +28,7 @@ bindsym $mod+h exec thunar
 bindsym $mod+t exec terminator
 bindsym $mod+Shift+f exec firefox
 # kill focused window
-bindsym $mod+Shift+q kill
+bindsym $mod+q kill
 
 # start dmenu (a program launcher)
 bindsym $mod+d exec --no-startup-id rofi -show drun -show-icons 
@@ -182,8 +182,8 @@ bindsym --release Shift+Print exec flameshot screen
 
 
 
-bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +10%
-bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 10%-
+bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
+bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
 
 # #---Basic Definitions---# #
 # smart_gaps on

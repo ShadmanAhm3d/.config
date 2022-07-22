@@ -1,0 +1,6 @@
+Installing C# dependencies...
+Platform: linux, x86_64, name=manjaro, version=unknown
+
+Downloading package 'OmniSharp for Linux (.NET 6 / x64)' Failed at stage: downloadPackage
+Error: connect ENETUNREACH 52.239.160.170:443
+

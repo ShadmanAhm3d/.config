@@ -1,0 +1,6 @@
+[2022-07-21 19:01:39.467] [main] [info] update#ctor - updates are disabled as there is no update URL
+[2022-07-21 19:01:44.834] [main] [info] Starting extension host with pid 62074 (fork() took 63 ms).
+[2022-07-21 19:03:16.729] [main] [info] Extension host with pid 62074 exited with code: 0, signal: null.
+[2022-07-21 19:03:21.783] [main] [info] Starting extension host with pid 62211 (fork() took 30 ms).
+[2022-07-21 19:08:26.911] [main] [info] Waiting for extension host with pid 62211 to exit.
+[2022-07-21 19:08:26.937] [main] [info] Extension host with pid 62211 exited with code: 0, signal: null.

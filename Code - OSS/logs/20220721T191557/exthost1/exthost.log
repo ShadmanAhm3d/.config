@@ -1,0 +1,13 @@
+[2022-07-21 19:16:08.891] [exthost] [info] Extension host with pid 63804 started
+[2022-07-21 19:16:08.891] [exthost] [info] Skipping acquiring lock for /home/shaddy/.config/Code - OSS/User/workspaceStorage/67498bb5e81d43eac0075e7ca04f803a.
+[2022-07-21 19:16:09.946] [exthost] [info] ExtensionService#_doActivateExtension muhammad-sammy.csharp, startup: false, activationEvent: 'onLanguage:csharp'
+[2022-07-21 19:16:10.265] [exthost] [info] ExtensionService#_doActivateExtension vscode.debug-auto-launch, startup: true, activationEvent: '*'
+[2022-07-21 19:16:10.292] [exthost] [info] ExtensionService#_doActivateExtension vscode.git-base, startup: true, activationEvent: '*', root cause: vscode.git
+[2022-07-21 19:16:10.363] [exthost] [info] ExtensionService#_doActivateExtension vscode.ipynb, startup: true, activationEvent: '*'
+[2022-07-21 19:16:11.052] [exthost] [info] ExtensionService#_doActivateExtension vscode.git, startup: true, activationEvent: '*'
+[2022-07-21 19:16:11.233] [exthost] [info] ExtensionService#_doActivateExtension vscode.github, startup: true, activationEvent: '*'
+[2022-07-21 19:16:12.471] [exthost] [info] Eager extensions activated
+[2022-07-21 19:16:12.801] [exthost] [info] ExtensionService#_doActivateExtension vscode.emmet, startup: false, activationEvent: 'onStartupFinished'
+[2022-07-21 19:16:12.832] [exthost] [info] ExtensionService#_doActivateExtension vscode.merge-conflict, startup: false, activationEvent: 'onStartupFinished'
+[2022-07-21 19:16:26.763] [exthost] [info] Extension host terminating: received terminate message from renderer
+[2022-07-21 19:16:26.807] [exthost] [info] Extension host with pid 63804 exiting with code 0

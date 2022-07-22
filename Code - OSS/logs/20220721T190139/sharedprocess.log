@@ -1,0 +1,11 @@
+[2022-07-21 19:01:50.784] [sharedprocess] [info] Starting worker process with pid 62108 (type: fileWatcher, window: 1).
+[2022-07-21 19:01:52.060] [sharedprocess] [warning] No ptyHost heartbeat after 6 seconds
+[2022-07-21 19:03:16.745] [sharedprocess] [info] Worker process with pid 62108 terminated normally (type: fileWatcher, window: 1).
+[2022-07-21 19:03:21.855] [sharedprocess] [info] Starting worker process with pid 62212 (type: fileWatcher, window: 1).
+[2022-07-21 19:06:27.588] [sharedprocess] [info] Getting Manifest... muhammad-sammy.csharp
+[2022-07-21 19:06:27.970] [sharedprocess] [info] Installing extension: muhammad-sammy.csharp
+[2022-07-21 19:06:32.878] [sharedprocess] [info] Downloaded extension: muhammad-sammy.csharp /home/shaddy/.config/Code - OSS/CachedExtensionVSIXs/muhammad-sammy.csharp-1.25.0
+[2022-07-21 19:06:33.199] [sharedprocess] [info] Extracted extension to /home/shaddy/.vscode-oss/extensions/.a7c83019-b608-47a3-9a77-8141caaca1fe: muhammad-sammy.csharp
+[2022-07-21 19:06:33.230] [sharedprocess] [info] Renamed to /home/shaddy/.vscode-oss/extensions/muhammad-sammy.csharp-1.25.0
+[2022-07-21 19:06:33.249] [sharedprocess] [info] Extracting completed. muhammad-sammy.csharp
+[2022-07-21 19:06:33.277] [sharedprocess] [info] Extension installed successfully: muhammad-sammy.csharp

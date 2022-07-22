@@ -1,0 +1,9 @@
+[2022-07-21 19:16:50.922] [sharedprocess] [info] Starting worker process with pid 64148 (type: fileWatcher, window: 1).
+[2022-07-21 19:16:52.450] [sharedprocess] [warning] No ptyHost heartbeat after 6 seconds
+[2022-07-21 19:17:41.509] [sharedprocess] [info] Getting Manifest... jsw.csharpextensions
+[2022-07-21 19:17:41.848] [sharedprocess] [info] Installing extension: jsw.csharpextensions
+[2022-07-21 19:17:45.112] [sharedprocess] [info] Downloaded extension: jsw.csharpextensions /home/shaddy/.config/Code - OSS/CachedExtensionVSIXs/jsw.csharpextensions-1.7.0
+[2022-07-21 19:17:45.451] [sharedprocess] [info] Extracted extension to /home/shaddy/.vscode-oss/extensions/.ff573637-3249-4d60-ac2f-fcbd2c766669: jsw.csharpextensions
+[2022-07-21 19:17:45.464] [sharedprocess] [info] Renamed to /home/shaddy/.vscode-oss/extensions/jsw.csharpextensions-1.7.0
+[2022-07-21 19:17:45.471] [sharedprocess] [info] Extracting completed. jsw.csharpextensions
+[2022-07-21 19:17:45.479] [sharedprocess] [info] Extension installed successfully: jsw.csharpextensions

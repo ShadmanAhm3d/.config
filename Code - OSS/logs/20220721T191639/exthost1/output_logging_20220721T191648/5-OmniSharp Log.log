@@ -1,0 +1,4 @@
+Starting OmniSharp server at 21/07/2022, 7:21:53 pm
+    Target: /home/shaddy/testiing
+
+[ERROR] Error: Found dotnet version 5.0.408. Minimum required version is 6.0.100.
