@@ -110,22 +110,11 @@ use { "ellisonleao/gruvbox.nvim" }
   -- Telescope
   use "nvim-telescope/telescope.nvim"
 
-
-  use {
-    "Nvchad/base46",
-     config = function()
-      local ok, base46 = pcall(require, "base46")
-
-      if ok then
-        base46.load_theme()
-      end
-    end,
-  }
-
-
-
-
-
+--boookmarks telsecope extension
+        use {
+          'dhruvmanila/telescope-bookmarks.nvim',
+          tag = '*',
+        }
 
 
 

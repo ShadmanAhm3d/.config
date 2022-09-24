@@ -89,12 +89,6 @@ _G.packer_plugins = {
     path = "/home/shaddy/.local/share/nvim/site/pack/packer/start/alpha-nvim",
     url = "https://github.com/goolord/alpha-nvim"
   },
-  base46 = {
-    config = { "\27LJ\2\nK\0\0\4\0\4\0\t6\0\0\0006\2\1\0'\3\2\0B\0\3\3\15\0\0\0X\2\2€9\2\3\1B\2\1\1K\0\1\0\15load_theme\vbase46\frequire\npcall\0" },
-    loaded = true,
-    path = "/home/shaddy/.local/share/nvim/site/pack/packer/start/base46",
-    url = "https://github.com/Nvchad/base46"
-  },
   ["bufferline.nvim"] = {
     loaded = true,
     path = "/home/shaddy/.local/share/nvim/site/pack/packer/start/bufferline.nvim",
@@ -226,7 +220,7 @@ _G.packer_plugins = {
     url = "https://github.com/neovim/nvim-lspconfig"
   },
   ["nvim-notify"] = {
-    config = { "\27LJ\2\n}\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\3\ftimeout\3¸\23\22background_colour\16FloatShadow\vstages\22fade_in_slide_out\nsetup\vnotify\frequire\0" },
+    config = { "\27LJ\2\n}\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\3\22background_colour\16FloatShadow\ftimeout\3¸\23\vstages\22fade_in_slide_out\nsetup\vnotify\frequire\0" },
     loaded = true,
     path = "/home/shaddy/.local/share/nvim/site/pack/packer/start/nvim-notify",
     url = "https://github.com/rcarriga/nvim-notify"
@@ -281,6 +275,11 @@ _G.packer_plugins = {
     path = "/home/shaddy/.local/share/nvim/site/pack/packer/start/synthwave84.nvim",
     url = "https://github.com/lunarvim/synthwave84.nvim"
   },
+  ["telescope-bookmarks.nvim"] = {
+    loaded = true,
+    path = "/home/shaddy/.local/share/nvim/site/pack/packer/start/telescope-bookmarks.nvim",
+    url = "https://github.com/dhruvmanila/telescope-bookmarks.nvim"
+  },
   ["telescope.nvim"] = {
     loaded = true,
     path = "/home/shaddy/.local/share/nvim/site/pack/packer/start/telescope.nvim",
@@ -316,12 +315,8 @@ _G.packer_plugins = {
 time([[Defining packer_plugins]], false)
 -- Config for: nvim-notify
 time([[Config for nvim-notify]], true)
-try_loadstring("\27LJ\2\n}\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\3\ftimeout\3¸\23\22background_colour\16FloatShadow\vstages\22fade_in_slide_out\nsetup\vnotify\frequire\0", "config", "nvim-notify")
+try_loadstring("\27LJ\2\n}\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\3\22background_colour\16FloatShadow\ftimeout\3¸\23\vstages\22fade_in_slide_out\nsetup\vnotify\frequire\0", "config", "nvim-notify")
 time([[Config for nvim-notify]], false)
--- Config for: base46
-time([[Config for base46]], true)
-try_loadstring("\27LJ\2\nK\0\0\4\0\4\0\t6\0\0\0006\2\1\0'\3\2\0B\0\3\3\15\0\0\0X\2\2€9\2\3\1B\2\1\1K\0\1\0\15load_theme\vbase46\frequire\npcall\0", "config", "base46")
-time([[Config for base46]], false)
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then
