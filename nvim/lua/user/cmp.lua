@@ -102,7 +102,7 @@ cmp.setup {
       -- vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
       vim_item.menu = ({
         nvim_lsp = "[LSP]",
-        luasnip = "[Snippet]",
+        --[[ luasnip = "[Snippet]", ]]
         buffer = "[Buffer]",
         path = "[Path]",
       })[entry.source.name]
@@ -110,20 +110,38 @@ cmp.setup {
     end,
   },
   sources = {
-    { name = "nvim_lsp" },
-    { name = "luasnip" },
-    { name = "buffer" },
+    { name = "nvim_lsp", },
+    --[[ { name = "luasnip" }, ]]
+    { name = "buffer",keyword_length = 3, priority = 50  },
     { name = "path" },
   },
   confirm_opts = {
     behavior = cmp.ConfirmBehavior.Replace,
     select = false,
   },
- window= {
-    documentation = cmp.config.window.bordered(),
+  window = {
+    documentation = {
+      border = {'╭', '─', '╮', '│', '╯', '─', '╰', '│'},
+      winhighlight = 'Normal:CmpPmenu,FloatBorder:CmpPmenuBorder,CursorLine:PmenuSel,Search:None',
+    },
+    completion = {
+      border = {'╭', '─', '╮', '│', '╯', '─', '╰', '│'},
+      winhighlight = 'Normal:CmpPmenu,FloatBorder:CmpPmenuBorder,CursorLine:PmenuSel,Search:None',
+    }
   },
+
   experimental = {
     ghost_text = false,
     native_menu = false,
   },
 }
+
+
+  cmp.setup.cmdline(':', {
+    mapping = cmp.mapping.preset.cmdline(),
+    sources = cmp.config.sources({
+      { name = 'path' }
+    }, {
+      { name = 'cmdline' }
+    })
+  })

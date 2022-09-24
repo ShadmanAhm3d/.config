@@ -41,6 +41,8 @@ packer.init {
 -- Install your plugins herecharacter). p will then paste the line on a new line after t
 return packer.startup(function(use)
   -- My plugins here
+  
+
   use "wbthomason/packer.nvim" -- Have packer manage itself
   use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
   use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
@@ -110,15 +112,8 @@ use { "ellisonleao/gruvbox.nvim" }
   -- Telescope
   use "nvim-telescope/telescope.nvim"
 
---boookmarks telsecope extension
-        use {
-          'dhruvmanila/telescope-bookmarks.nvim',
-          tag = '*',
-        }
 
 
-
-  
   -- Treesitter
   use {
     "nvim-treesitter/nvim-treesitter",

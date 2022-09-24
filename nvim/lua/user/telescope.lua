@@ -4,7 +4,7 @@ if not status_ok then
 end
 
 local actions = require "telescope.actions"
- require('telescope').load_extension('bookmarks')
+-- require('telescope').load_extension('bookmarks')
 
 telescope.setup {
   defaults = {
@@ -91,42 +91,10 @@ file_ignore_patterns = { ".git/", "node_modules/", "target/" },
     -- Now the picker_config_key will be applied every time you call this
     -- builtin picker
   },
+layout_config = {
+				vertical = { width = 0.5 },
+				-- other layout configuration here
+			},
   extensions = {
- bookmarks = {
-      -- Available:
-      --  * 'brave'
-      --  * 'buku'
-      --  * 'chrome'
-      --  * 'chrome_beta'
-      --  * 'edge'
-      --  * 'firefox'
-      --  * 'qutebrowser'
-      --  * 'safari'
-      --  * 'vivaldi'
-      --  * 'waterfox'
-      selected_browser = 'brave',
-
-      -- Either provide a shell command to open the URL
-      url_open_command = 'open',
-
-      -- Or provide the plugin name which is already installed
-      -- Available: 'vim_external', 'open_browser'
-      url_open_plugin = nil,
-
-      -- Show the full path to the bookmark instead of just the bookmark name
-      full_path = true,
-
-      -- Provide a custom profile name for Firefox browser
-      firefox_profile_name = nil,
-
-      -- Provide a custom profile name for Waterfox browser
-      waterfox_profile_name = nil,
-
-      -- Add a column which contains the tags for each bookmark for buku
-      buku_include_tags = false,
-
-      -- Provide debug messages
-      debug = false,
-    },
-  }
+  },
 }
