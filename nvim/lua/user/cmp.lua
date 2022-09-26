@@ -112,7 +112,7 @@ cmp.setup {
   sources = {
     { name = "nvim_lsp", },
     --[[ { name = "luasnip" }, ]]
-    { name = "buffer",keyword_length = 3, priority = 50  },
+    { name = "buffer",keyword_length = 3, priority = 50  }, -- priorities for showing suggestions
     { name = "path" },
   },
   confirm_opts = {
@@ -136,7 +136,7 @@ cmp.setup {
   },
 }
 
-
+--shows suggestion in : cmd
   cmp.setup.cmdline(':', {
     mapping = cmp.mapping.preset.cmdline(),
     sources = cmp.config.sources({

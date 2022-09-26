@@ -10,6 +10,7 @@ keymap("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
+
 -- Modes
 --   normal_mode = "n",
 --   insert_mode = "i",
@@ -74,7 +75,7 @@ keymap("n", "<leader>fl", ":Telescope live_grep<CR>", opts)
 keymap("n", "<leader>fp", ":Telescope projects<CR>", opts)
 keymap("n", "<leader>fb", ":Telescope buffers<CR>", opts)
 keymap("n", "<leader>ft", ":Telescope bookmarks<CR>", opts)
-keymap("n", "<C-p>" , ":FZF<CR>", opts)
+keymap("n", "<C-p>" , ":Telescope find_files<CR>", opts)
 -- Nvimtresse
 keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
 
@@ -82,5 +83,5 @@ keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
 
 keymap("n", "<C-w>", ":Bdelete<CR>",opts)
 
-
+keymap("n", "<C-s>", ":w<CR>",opts)
 

@@ -9,7 +9,7 @@ local actions = require "telescope.actions"
 telescope.setup {
   defaults = {
 
-    prompt_prefix = " ",
+    prompt_prefix = "🚀 ",
     selection_caret = " ",
     path_display = { "smart" },
 file_ignore_patterns = { ".git/", "node_modules/", "target/" },
@@ -91,10 +91,9 @@ file_ignore_patterns = { ".git/", "node_modules/", "target/" },
     -- Now the picker_config_key will be applied every time you call this
     -- builtin picker
   },
-layout_config = {
-				vertical = { width = 0.5 },
-				-- other layout configuration here
-			},
-  extensions = {
+ extensions = {
   },
 }
+
+	
+vim.notify = require("notify")

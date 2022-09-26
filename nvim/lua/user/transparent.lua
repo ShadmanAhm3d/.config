@@ -11,6 +11,7 @@ require("transparent").setup({
     "BufferLineSeparator",
     "BufferLineIndicatorSelected",
     "LuaLineBackground",
+    "Packer"
   },
   exclude = {}, -- table: groups you don't want to clear
 })

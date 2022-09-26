@@ -3,6 +3,7 @@ if status is-interactive
 
  set -U fish_greeting 
   alias :wq="exit"
+  alias sl="ls"
   alias update="sudo apt-get update"
   alias upgrade= "sudo apt-get upgrade"
 end
