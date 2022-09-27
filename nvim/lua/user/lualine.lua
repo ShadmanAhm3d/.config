@@ -173,7 +173,8 @@ ins_left {
     return msg
   end,
   icon = ' Server:',
-  color = { fg = '#ffffff', gui = 'bold' },
+  color = { fg = '#acb0d0', gui = 'bold' },
+  
 }
 
 -- Add components to right sections
