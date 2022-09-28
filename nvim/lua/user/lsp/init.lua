@@ -28,9 +28,16 @@ require'lspconfig'.csharp_ls.setup{
 }
 --
 require'lspconfig'.sumneko_lua.setup{
-  autostart = true
-}
+  autostart = true,
+settings = {
+        Lua = {
+            diagnostics = {
+                globals = { 'vim' }
+            }
+        }
+    }}
 require'lspconfig'.clangd.setup{
   autostart = true
 }
 -- add the configs servers for other languages after setting up the mason and mason-lspconfig like usual
+-- more languages you add just copy paste the config
