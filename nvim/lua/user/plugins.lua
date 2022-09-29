@@ -51,6 +51,8 @@ return packer.startup(function(use)
   use "kyazdani42/nvim-web-devicons"
   use "kyazdani42/nvim-tree.lua"
   use "akinsho/bufferline.nvim"
+
+--[[ 'noib3/nvim-cokeline' ]]
   use "moll/vim-bbye"
   use 'nvim-lualine/lualine.nvim'
   use "akinsho/toggleterm.nvim"
@@ -73,22 +75,16 @@ use({
   
   use 'tanvirtin/monokai.nvim'
   use { "catppuccin/nvim", as = "catppuccin" }
-  use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
   use "lunarvim/darkplus.nvim"
-  use "lunarvim/synthwave84.nvim"
   use "lunarvim/horizon.nvim"
   use "sainnhe/sonokai" --sonokai
  use 'folke/tokyonight.nvim'
-  use "rafamadriz/neon"
   use "tomasiser/vim-code-dark"
-  use 'Mofiqul/vscode.nvim'
-  use 'marko-cerovac/material.nvim'
   use({
     'rose-pine/neovim',
 })
 
 use { "ellisonleao/gruvbox.nvim" }
-  use "sainnhe/edge"
 
   -- cmp plugins
 
@@ -126,6 +122,7 @@ use "williamboman/mason-lspconfig.nvim"
 
   -- Telescope
   use "nvim-telescope/telescope.nvim"
+
  -- Treesitter
   use {
     "nvim-treesitter/nvim-treesitter",

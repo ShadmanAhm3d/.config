@@ -66,6 +66,7 @@ local config = {
     lualine_c = {},
     lualine_x = {},
   },
+
 }
 
 -- Inserts a component in lualine_c at left section

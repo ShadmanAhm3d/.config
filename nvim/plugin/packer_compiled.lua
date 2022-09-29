@@ -124,20 +124,10 @@ _G.packer_plugins = {
     path = "/home/shaddy/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
-  colorschemes = {
-    loaded = true,
-    path = "/home/shaddy/.local/share/nvim/site/pack/packer/start/colorschemes",
-    url = "https://github.com/lunarvim/colorschemes"
-  },
   ["darkplus.nvim"] = {
     loaded = true,
     path = "/home/shaddy/.local/share/nvim/site/pack/packer/start/darkplus.nvim",
     url = "https://github.com/lunarvim/darkplus.nvim"
-  },
-  edge = {
-    loaded = true,
-    path = "/home/shaddy/.local/share/nvim/site/pack/packer/start/edge",
-    url = "https://github.com/sainnhe/edge"
   },
   ["friendly-snippets"] = {
     loaded = true,
@@ -174,20 +164,10 @@ _G.packer_plugins = {
     path = "/home/shaddy/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
   },
-  ["material.nvim"] = {
-    loaded = true,
-    path = "/home/shaddy/.local/share/nvim/site/pack/packer/start/material.nvim",
-    url = "https://github.com/marko-cerovac/material.nvim"
-  },
   ["monokai.nvim"] = {
     loaded = true,
     path = "/home/shaddy/.local/share/nvim/site/pack/packer/start/monokai.nvim",
     url = "https://github.com/tanvirtin/monokai.nvim"
-  },
-  neon = {
-    loaded = true,
-    path = "/home/shaddy/.local/share/nvim/site/pack/packer/start/neon",
-    url = "https://github.com/rafamadriz/neon"
   },
   neovim = {
     loaded = true,
@@ -275,11 +255,6 @@ _G.packer_plugins = {
     path = "/home/shaddy/.local/share/nvim/site/pack/packer/start/sonokai",
     url = "https://github.com/sainnhe/sonokai"
   },
-  ["synthwave84.nvim"] = {
-    loaded = true,
-    path = "/home/shaddy/.local/share/nvim/site/pack/packer/start/synthwave84.nvim",
-    url = "https://github.com/lunarvim/synthwave84.nvim"
-  },
   ["telescope.nvim"] = {
     loaded = true,
     path = "/home/shaddy/.local/share/nvim/site/pack/packer/start/telescope.nvim",
@@ -304,11 +279,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/shaddy/.local/share/nvim/site/pack/packer/start/vim-code-dark",
     url = "https://github.com/tomasiser/vim-code-dark"
-  },
-  ["vscode.nvim"] = {
-    loaded = true,
-    path = "/home/shaddy/.local/share/nvim/site/pack/packer/start/vscode.nvim",
-    url = "https://github.com/Mofiqul/vscode.nvim"
   }
 }
 

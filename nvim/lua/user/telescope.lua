@@ -92,6 +92,7 @@ file_ignore_patterns = { ".git/", "node_modules/", "target/" },
     -- builtin picker
   },
  extensions = {
+    
   },
 }
 

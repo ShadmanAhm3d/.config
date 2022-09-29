@@ -1,4 +1,4 @@
-
+--[[ vim.g.catppuccin_flavour = "macchiato"  ]]
 -- vim.g.tokyonight_style ='storm' 
 --vim.g.sonokai_style='shusia'
 vim.cmd [[
