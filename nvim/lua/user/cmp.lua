@@ -119,17 +119,20 @@ cmp.setup {
     behavior = cmp.ConfirmBehavior.Replace,
     select = false,
   },
-  window = {
-    documentation = {
-      border = {'╭', '─', '╮', '│', '╯', '─', '╰', '│'},
-      winhighlight = 'Normal:CmpPmenu,FloatBorder:CmpPmenuBorder,CursorLine:PmenuSel,Search:None',
-    },
-    completion = {
-      border = {'╭', '─', '╮', '│', '╯', '─', '╰', '│'},
-      winhighlight = 'Normal:CmpPmenu,FloatBorder:CmpPmenuBorder,CursorLine:PmenuSel,Search:None',
-    }
-  },
-
+  --[[ window = { ]]
+  --[[   documentation = { ]]
+  --[[     border = {'╭', '─', '╮', '│', '╯', '─', '╰', '│'}, ]]
+  --[[     winhighlight = 'Normal:CmpPmenu,FloatBorder:CmpPmenuBorder,CursorLine:PmenuSel,Search:None', ]]
+  --[[   }, ]]
+  --[[   completion = { ]]
+  --[[     border = {'╭', '─', '╮', '│', '╯', '─', '╰', '│'}, ]]
+  --[[     winhighlight = 'Normal:CmpPmenu,FloatBorder:CmpPmenuBorder,CursorLine:PmenuSel,Search:None', ]]
+  --[[   } ]]
+  --[[ }, ]]
+window = {
+			completion = cmp.config.window.bordered(),
+			documentation = cmp.config.window.bordered(),
+		},
   experimental = {
     ghost_text = false,
     native_menu = false,
