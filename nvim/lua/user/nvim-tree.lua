@@ -2,7 +2,7 @@ local status_ok, nvim_tree = pcall(require, "nvim-tree")
 if not status_ok then
   return
 end
-vim.cmd("autocmd Colorscheme * highlight NvimTreeNormal guibg=none guifg=#9da5b3")
+vim.cmd("highlight NvimTreeNormal guibg='#000' guifg='none' ")
 local config_status_ok, nvim_tree_config = pcall(require, "nvim-tree.config")
 if not config_status_ok then
   return
@@ -24,7 +24,7 @@ nvim_tree.setup {
         symlink = "",
         folder = {
           arrow_open = "",
-          arrow_closed = "",
+          arrow_closed = "➜",
           default = "",
           open = "",
           empty = "",

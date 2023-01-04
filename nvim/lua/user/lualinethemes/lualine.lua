@@ -17,6 +17,7 @@ local colors = {
   magenta  = '#c678dd',
   blue     = '#51afef',
   red      = '#ec5f67',
+  black      = '#000000',
 }
 
 local conditions = {
@@ -69,6 +70,44 @@ local config = {
 
 }
 
+local mode_names = {
+  ["n"] = "NORMAL",
+  ["no"] = "PENDING",
+  ["nov"] = "PENDING",
+  ["noV"] = "PENDING",
+  ["no\22"] = "PENDING",
+  ["niI"] = "NORMAL",
+  ["niR"] = "NORMAL",
+  ["niV"] = "NORMAL",
+  ["nt"] = "NORMAL",
+  ["ntT"] = "NORMAL",
+  ["v"] = "VISUAL",
+  ["vs"] = "VISUAL",
+  ["V"] = "V-LINE",
+  ["Vs"] = "V-LINE",
+  ["\22"] = "V-BLOCK",
+  ["\22s"] = "V-BLOCK",
+  ["s"] = "SELECT",
+  ["S"] = "S-LINE",
+  ["\19"] = "S-BLOCK",
+  ["i"] = "INSERT",
+  ["ic"] = "INSERT",
+  ["ix"] = "INSERT",
+  ["R"] = "REPLACE",
+  ["Rc"] = "REPLACE",
+  ["Rx"] = "REPLACE",
+  ["Rv"] = "V-REPLACE",
+  ["Rvc"] = "V-REPLACE",
+  ["Rvx"] = "V-REPLACE",
+  ["c"] = "COMMAND",
+  ["cv"] = "EX",
+  ["ce"] = "EX",
+  ["r"] = "REPLACE",
+  ["rm"] = "MORE",
+  ["r?"] = "CONFIRM",
+  ["!"] = "SHELL",
+  ["t"] = "TERMINAL",
+}
 -- Inserts a component in lualine_c at left section
 local function ins_left(component)
   table.insert(config.sections.lualine_c, component)
@@ -90,7 +129,11 @@ ins_left {
 ins_left {
   -- mode component
   function()
-    return ''
+    local mode_name = vim.api.nvim_get_mode().mode
+    if mode_names[mode_name] == nil then
+      return mode_name
+    end
+    return mode_names[mode_name]
   end,
   color = function()
     -- auto change color according to neovims mode

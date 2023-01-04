@@ -36,30 +36,35 @@ packer.init {
       return require("packer.util").float { border = "rounded" }
     end,
   },
+  profile = {
+    enable = true,
+    threshold = 0 -- the amount in ms that a plugin's load time must be over for it to be included in the profile
+  },
 }
 
 -- Install your plugins herecharacter). p will then paste the line on a new line after t
 return packer.startup(function(use)
   -- My plugins here
-  
-
+  use "VonHeikemen/lsp-zero.nvim"
+  use 'lewis6991/impatient.nvim'
   use "wbthomason/packer.nvim" -- Have packer manage itself
   use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
   use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
   use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and treesitter
   use "numToStr/Comment.nvim" -- Easily comment stuff
   use "kyazdani42/nvim-web-devicons"
-  use "kyazdani42/nvim-tree.lua"
-  use "akinsho/bufferline.nvim"
+  use { "kyazdani42/nvim-tree.lua" }
+  use {
+    "akinsho/bufferline.nvim",
+  }
 
---[[ 'noib3/nvim-cokeline' ]]
+  use "mbbill/undotree"
   use "moll/vim-bbye"
   use 'nvim-lualine/lualine.nvim'
   use "akinsho/toggleterm.nvim"
-  --use "OmniSharp/omnisharp-vim"
-use({
-  "xiyaowong/nvim-transparent",
-})
+  use({
+    "xiyaowong/nvim-transparent", 
+  })
   use {
     'rcarriga/nvim-notify',
     config = function()
@@ -67,33 +72,32 @@ use({
         stages = 'fade_in_slide_out',
         background_colour = 'FloatShadow',
         timeout = 3000,
-        
       }
     end
   }
   -- Colorschemes
-  
-  use 'tanvirtin/monokai.nvim'
-  use { "catppuccin/nvim", as = "catppuccin" }
-  use "lunarvim/darkplus.nvim"
+  use "/home/Shad/plugin/stackmap.nvim"
   use "lunarvim/horizon.nvim"
   use "sainnhe/sonokai" --sonokai
- use 'folke/tokyonight.nvim'
-  use "tomasiser/vim-code-dark"
   use({
     'rose-pine/neovim',
-})
-
-use { "ellisonleao/gruvbox.nvim" }
+  })
+  use { "ellisonleao/gruvbox.nvim" }
 
   -- cmp plugins
 
-  use "hrsh7th/nvim-cmp" -- The completion plugin
-  use "hrsh7th/cmp-buffer" -- buffer completions
-  use "hrsh7th/cmp-path" -- path completions
-  use "hrsh7th/cmp-cmdline" -- cmdline completions
-  use "saadparwaiz1/cmp_luasnip" -- snippet completions
-  use "hrsh7th/cmp-nvim-lsp"
+  use {
+    "hrsh7th/nvim-cmp",
+    event = { "InsertEnter", "CmdlineEnter" },
+    config = function()
+      require("user.cmp")
+    end
+  } -- The completion plugin
+  use { "hrsh7th/cmp-buffer", after = "nvim-cmp" } -- buffer completions
+  use { "hrsh7th/cmp-path", after = "nvim-cmp" } -- path completions 
+  use { "hrsh7th/cmp-cmdline", after = "nvim-cmp" } -- cmdline completions
+  use { "saadparwaiz1/cmp_luasnip", after = "nvim-cmp" } -- snippet completions
+  use { "hrsh7th/cmp-nvim-lsp", after = "nvim-cmp" }
 
   -- snippets
   use "L3MON4D3/LuaSnip" --snippet engine
@@ -101,52 +105,79 @@ use { "ellisonleao/gruvbox.nvim" }
 
   -- LSP
   use "neovim/nvim-lspconfig" -- enable LSP
-  --[[ use "williamboman/nvim-lsp-installer" -- simple to use language server installer ]]
   use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
-  use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
-
-use { "williamboman/mason.nvim" }
-use "williamboman/mason-lspconfig.nvim"
-
-
-
-
-
-
-
-
-
-
-
-
-
+  use "jayp0521/mason-null-ls.nvim" --mason bridge less
+ use { 
+    "jose-elias-alvarez/null-ls.nvim",
+    event="BufWinEnter",
+    config = function ()
+      require("user.null-ls")
+    end
+  } 
+  use { "williamboman/mason.nvim" }
+  use "williamboman/mason-lspconfig.nvim"
   -- Telescope
   use "nvim-telescope/telescope.nvim"
 
- -- Treesitter
+  -- Treesitter,lazyloading done
   use {
     "nvim-treesitter/nvim-treesitter",
-    run = ":TSUpdate",
+    module = "nvim-treesitter",
+    event = "BufRead",
+    cmd = {
+      "TSInstall",
+      "TSInstallInfo",
+      "TSUpdate",
+      "TSBufEnable",
+      "TSBufDisable",
+      "TSEnable",
+      "TSDisable",
+      "TSModuleInfo",
+    },
+    config = function()
+      require("user.treesitter")
+    end
   }
+
+
+
+
+
   use "JoosepAlviste/nvim-ts-context-commentstring"
-
-  -- Git
-  use "lewis6991/gitsigns.nvim"
-
   -- nvim colorozer
   use "norcalli/nvim-colorizer.lua"
 
---Dashboard
+  --Dashboard
   use {
     'goolord/alpha-nvim'
+  }
+
+
+  --nvim surround
+  use({
+    "kylechui/nvim-surround",
+    tag = "*", -- Use for stability; omit to use `main` branch for the latest features
+    config = function()
+        require("nvim-surround").setup({
+            -- Configuration here, or leave empty to use defaults
+        })
+    end
+})
+
+use {
+	'xeluxee/competitest.nvim',
+	requires = 'MunifTanjim/nui.nvim',
 }
-  --LSP LINes
-  --use "https://git.sr.ht/~whynothugo/lsp_lines.nvim"
--- -- init.lua
--- require("packer").startup(function()
---     use "lukas-reineke/indent-blankline.nvim"
--- end)
-  -- Automatically set up your configuration after cloning packer.nvim
+
+
+
+
+
+
+
+
+
+
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
     require("packer").sync()

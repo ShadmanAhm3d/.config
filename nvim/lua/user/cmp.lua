@@ -1,12 +1,6 @@
-local cmp_status_ok, cmp = pcall(require, "cmp")
-if not cmp_status_ok then
-  return
-end
+local cmp = require("cmp")
 
-local snip_status_ok, luasnip = pcall(require, "luasnip")
-if not snip_status_ok then
-  return
-end
+local luasnip =require ("luasnip")
 
 require("luasnip/loaders/from_vscode").lazy_load()
 
@@ -53,7 +47,7 @@ cmp.setup {
   },
   mapping = {
     ["<C-k>"] = cmp.mapping.select_prev_item(),
-		["<C-j>"] = cmp.mapping.select_next_item(),
+    ["<C-j>"] = cmp.mapping.select_next_item(),
     ["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-1), { "i", "c" }),
     ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(1), { "i", "c" }),
     ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
@@ -102,7 +96,7 @@ cmp.setup {
       -- vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
       vim_item.menu = ({
         nvim_lsp = "[LSP]",
-        --[[ luasnip = "[Snippet]", ]]
+        luasnip = "[Snippet]",
         buffer = "[Buffer]",
         path = "[Path]",
       })[entry.source.name]
@@ -111,28 +105,18 @@ cmp.setup {
   },
   sources = {
     { name = "nvim_lsp", },
-    --[[ { name = "luasnip" }, ]]
-    { name = "buffer",keyword_length = 3, priority = 50  }, -- priorities for showing suggestions
+    { name = "luasnip" },
+    { name = "buffer", keyword_length = 3, priority = 50 }, -- priorities for showing suggestions
     { name = "path" },
   },
   confirm_opts = {
     behavior = cmp.ConfirmBehavior.Replace,
     select = false,
   },
-  --[[ window = { ]]
-  --[[   documentation = { ]]
-  --[[     border = {'╭', '─', '╮', '│', '╯', '─', '╰', '│'}, ]]
-  --[[     winhighlight = 'Normal:CmpPmenu,FloatBorder:CmpPmenuBorder,CursorLine:PmenuSel,Search:None', ]]
-  --[[   }, ]]
-  --[[   completion = { ]]
-  --[[     border = {'╭', '─', '╮', '│', '╯', '─', '╰', '│'}, ]]
-  --[[     winhighlight = 'Normal:CmpPmenu,FloatBorder:CmpPmenuBorder,CursorLine:PmenuSel,Search:None', ]]
-  --[[   } ]]
-  --[[ }, ]]
-window = {
-			completion = cmp.config.window.bordered(),
-			documentation = cmp.config.window.bordered(),
-		},
+  window = {
+    completion = cmp.config.window.bordered(),
+    documentation = cmp.config.window.bordered(),
+  },
   experimental = {
     ghost_text = false,
     native_menu = false,
@@ -140,11 +124,11 @@ window = {
 }
 
 --shows suggestion in : cmd
-  cmp.setup.cmdline(':', {
-    mapping = cmp.mapping.preset.cmdline(),
-    sources = cmp.config.sources({
-      { name = 'path' }
-    }, {
-      { name = 'cmdline' }
-    })
+cmp.setup.cmdline(':', {
+  mapping = cmp.mapping.preset.cmdline(),
+  sources = cmp.config.sources({
+    { name = 'path' }
+  }, {
+    { name = 'cmdline' }
   })
+})

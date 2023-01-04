@@ -17,17 +17,20 @@ toggleterm.setup({
 	persist_size = true,
 	direction = "vertical",
 	close_on_exit = true,
+        win_options = {
+          winhighlight = { Normal = 'BufferLinePick' },
+        },
+    highlights = {
+      FloatBorder = { link = 'FloatBorder' },
+      NormalFloat = { link = 'NormalNC' },
+    },
 	shell = vim.o.shell,
 	float_opts = {
 		border = "curved",
 		winblend = 0,
-		highlights = {
-			border = "Normal",
-			background = "red",
-		},
-	},
-})
-
+  },
+	}
+)
 function _G.set_terminal_keymaps()
   local opts = {noremap = true}
   vim.api.nvim_buf_set_keymap(0, 't', '<esc>', [[<C-\><C-n>]], opts)
@@ -36,8 +39,8 @@ function _G.set_terminal_keymaps()
   vim.api.nvim_buf_set_keymap(0, 't', '<C-j>', [[<C-\><C-n><C-W>j]], opts)
   vim.api.nvim_buf_set_keymap(0, 't', '<C-k>', [[<C-\><C-n><C-W>k]], opts)
   vim.api.nvim_buf_set_keymap(0, 't', '<C-l>', [[<C-\><C-n><C-W>l]], opts)
-end
 
+end
 vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
 
 local Terminal = require("toggleterm.terminal").Terminal

@@ -33,28 +33,28 @@ keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 -- Navigate buffers
 keymap("n", "<A-i>", ":bnext<CR>", opts)
 keymap("n", "<S-h>", ":bprevious<CR>", opts)
-
-vim.keymap.set("n", "K", "<Cmd>lua vim.lsp.buf.hover()<CR>", opts)
-
-  vim.keymap.set("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
-  vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
-
-  vim.keymap.set( "n", "gi", "<cmd>lua vim.lsp.buf.implementation()<cr>", opts)
-  vim.keymap.set( "n", "<c-k>", "<cmd>lua vim.lsp.buf.signature_help()<cr>", opts)
-  -- vim.keymap.set( "n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<cr>", opts)
-  vim.keymap.set( "n", "gr", "<cmd>lua vim.lsp.buf.references()<cr>", opts)
-  -- vim.keymap.set( "n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
-  -- vim.keymap.set( "n", "<leader>f", "<cmd>lua vim.diagnostic.open_float()<cr>", opts)
-  vim.keymap.set( "n", "[d", '<cmd>lua vim.diagnostic.goto_prev({ border = "rounded" })<cr>', opts)
-  vim.keymap.set(
-    "n",
-    "gl",
-    '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics({ border = "rounded" })<cr>',
-    opts
-  )
-  vim.keymap.set( "n", "<F2>", '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<cr>', opts)
-  vim.keymap.set( "n", "<leader>q", "<cmd>lua vim.diagnostic.setloclist()<cr>", opts)
-
+--[[]]
+--[[ vim.keymap.set("n", "K", "<Cmd>lua vim.lsp.buf.hover()<CR>", opts) ]]
+--[[]]
+--[[   vim.keymap.set("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts) ]]
+--[[   vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts) ]]
+--[[]]
+--[[   vim.keymap.set( "n", "gi", "<cmd>lua vim.lsp.buf.implementation()<cr>", opts) ]]
+--[[   vim.keymap.set( "n", "<c-k>", "<cmd>lua vim.lsp.buf.signature_help()<cr>", opts) ]]
+--[[   -- vim.keymap.set( "n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<cr>", opts) ]]
+--[[   vim.keymap.set( "n", "gr", "<cmd>lua vim.lsp.buf.references()<cr>", opts) ]]
+--[[   -- vim.keymap.set( "n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts) ]]
+--[[   -- vim.keymap.set( "n", "<leader>f", "<cmd>lua vim.diagnostic.open_float()<cr>", opts) ]]
+--[[   vim.keymap.set( "n", "[d", '<cmd>lua vim.diagnostic.goto_prev({ border = "rounded" })<cr>', opts) ]]
+--[[   vim.keymap.set( ]]
+--[[     "n", ]]
+--[[     "gl", ]]
+--[[     '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics({ border = "rounded" })<cr>', ]]
+--[[     opts ]]
+--[[   ) ]]
+--[[   vim.keymap.set( "n", "<F2>", '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<cr>', opts) ]]
+--[[   vim.keymap.set( "n", "<leader>q", "<cmd>lua vim.diagnostic.setloclist()<cr>", opts) ]]
+--[[]]
 -- Move text up and down
 keymap("n", "<A-j>", "<Esc>:m .+1<CR>==gi", opts)
 keymap("n", "<A-k>", "<Esc>:m .-2<CR>==gi", opts)
@@ -94,6 +94,7 @@ keymap("n", "<leader>fp", ":Telescope projects<CR>", opts)
 keymap("n", "<leader>fb", ":Telescope buffers<CR>", opts)
 keymap("n", "<leader>ft", ":Telescope bookmarks<CR>", opts)
 keymap("n", "<C-p>" , ":Telescope find_files<CR>", opts)
+keymap("n", "<leader>r" , ":term g++ %:p && ./a.out<CR>", opts) --cpp run
 -- Nvimtresse
 keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
 

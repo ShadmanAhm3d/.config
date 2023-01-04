@@ -43,6 +43,6 @@ for k, v in pairs(options) do
 end
 vim.cmd "set whichwrap+=<,>,[,],h,l"
 --vim.cmd('colorscheme onedark')
-vim.cmd("autocmd Colorscheme * highlight NvimTreeNormal guibg=none guifg=#9da5b3")
+--[[ vim.cmd("autocmd Colorscheme * highlight NvimTreeNormal guibg=none guifg=#9da5b3") ]]
 vim.cmd [[set iskeyword+=-]]
 vim.cmd [[set formatoptions-=cro]] -- TODO: this doesn't seem to work
