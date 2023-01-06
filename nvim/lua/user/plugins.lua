@@ -63,7 +63,7 @@ return packer.startup(function(use)
   use 'nvim-lualine/lualine.nvim'
   use "akinsho/toggleterm.nvim"
   use({
-    "xiyaowong/nvim-transparent", 
+    "xiyaowong/nvim-transparent",
   })
   use {
     'rcarriga/nvim-notify',
@@ -94,7 +94,7 @@ return packer.startup(function(use)
     end
   } -- The completion plugin
   use { "hrsh7th/cmp-buffer", after = "nvim-cmp" } -- buffer completions
-  use { "hrsh7th/cmp-path", after = "nvim-cmp" } -- path completions 
+  use { "hrsh7th/cmp-path", after = "nvim-cmp" } -- path completions
   use { "hrsh7th/cmp-cmdline", after = "nvim-cmp" } -- cmdline completions
   use { "saadparwaiz1/cmp_luasnip", after = "nvim-cmp" } -- snippet completions
   use { "hrsh7th/cmp-nvim-lsp", after = "nvim-cmp" }
@@ -107,13 +107,13 @@ return packer.startup(function(use)
   use "neovim/nvim-lspconfig" -- enable LSP
   use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
   use "jayp0521/mason-null-ls.nvim" --mason bridge less
- use { 
+  use {
     "jose-elias-alvarez/null-ls.nvim",
-    event="BufWinEnter",
-    config = function ()
+    event = "BufWinEnter",
+    config = function()
       require("user.null-ls")
     end
-  } 
+  }
   use { "williamboman/mason.nvim" }
   use "williamboman/mason-lspconfig.nvim"
   -- Telescope
@@ -140,6 +140,11 @@ return packer.startup(function(use)
   }
 
 
+  -- Git
+  use { "lewis6991/gitsigns.nvim",
+    config = function()
+    require("user.gitsigns")
+  end }
 
 
 
@@ -158,24 +163,20 @@ return packer.startup(function(use)
     "kylechui/nvim-surround",
     tag = "*", -- Use for stability; omit to use `main` branch for the latest features
     config = function()
-        require("nvim-surround").setup({
-            -- Configuration here, or leave empty to use defaults
-        })
+      require("nvim-surround").setup({
+        -- Configuration here, or leave empty to use defaults
+      })
     end
-})
+  })
 
-use {
-	'xeluxee/competitest.nvim',
-	requires = 'MunifTanjim/nui.nvim',
-}
+  use {
+    'xeluxee/competitest.nvim',
+    requires = 'MunifTanjim/nui.nvim',
+  }
 
-
-
-
-
-
-
-
+  use {
+    "lukas-reineke/indent-blankline.nvim",
+  }
 
 
   -- Put this at the end after all plugins

@@ -42,7 +42,7 @@ local datetime = os.date " %H:%M"
 
 local hi_top_section = {
   type = "text",
-  val =  "┌────────────   Today is " .. date .. " ────────────┐",
+  val =  "╭────────────   Today is " .. date .. " ────────────╮",
   opts = {
     position = "center",
     hl = "Normal"
@@ -60,7 +60,7 @@ local hi_middle_section = {
 
 local hi_bottom_section = {
   type = "text",
-  val = "└───══───══───══───  " .. datetime .. "  ───══───══───══────┘",
+  val = "╰───══───══───══───  " .. datetime .. "  ───══───══───══────╯",
   opts = {
     position = "center",
     hl = "Normal"
@@ -126,6 +126,10 @@ local section = {
 
 --Footer here
 
+local handle = assert(io.popen('fortune -s'))
+local fortune = handle:read("*all")
+handle:close()
+dashboard.section.footer.val = fortune
 
 
 
@@ -143,7 +147,7 @@ local opts = {
     section.hi_bottom_section,
     {type = "padding", val = 2},
     section.buttons,
-    {type = "padding", val = 5},
+    {type = "padding", val = 2},
     section.footer,
   },
   opts = {

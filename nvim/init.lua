@@ -19,6 +19,6 @@ require "user.compitest"
 require "user.toggleterm"
 require "user.colorozer"
 --[[ require "user.lualinethemes.lualine" ]]
---[[ require "user.lualinethemes.lualine1" ]]
+require "user.lualinethemes.lualine1"
 
 
