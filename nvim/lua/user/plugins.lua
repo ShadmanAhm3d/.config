@@ -76,12 +76,11 @@ return packer.startup(function(use)
     end
   }
   -- Colorschemes
-  use "/home/Shad/plugin/stackmap.nvim"
+use 'martinsione/darkplus.nvim'
+  use {'Mofiqul/vscode.nvim' }
   use "lunarvim/horizon.nvim"
   use "sainnhe/sonokai" --sonokai
-  use({
-    'rose-pine/neovim',
-  })
+  use({ 'projekt0n/github-nvim-theme' })
   use { "ellisonleao/gruvbox.nvim" }
 
   -- cmp plugins
@@ -138,13 +137,11 @@ return packer.startup(function(use)
       require("user.treesitter")
     end
   }
-
-
   -- Git
   use { "lewis6991/gitsigns.nvim",
     config = function()
-    require("user.gitsigns")
-  end }
+      require("user.gitsigns")
+    end }
 
 
 

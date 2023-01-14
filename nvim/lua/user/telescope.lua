@@ -12,7 +12,7 @@ telescope.setup {
     prompt_prefix = "🚀 ",
     selection_caret = " ",
     path_display = { "smart" },
-file_ignore_patterns = { ".git/", "node_modules/", "target/" },
+    file_ignore_patterns = { ".git/", "node_modules/", "target/" },
     mappings = {
       i = {
         ["<C-n>"] = actions.cycle_history_next,
@@ -79,7 +79,7 @@ file_ignore_patterns = { ".git/", "node_modules/", "target/" },
     },
   },
   pickers = {
-    find_files  ={
+    find_files = {
       --previewer = false,
       theme = "dropdown",
     }
@@ -91,10 +91,10 @@ file_ignore_patterns = { ".git/", "node_modules/", "target/" },
     -- Now the picker_config_key will be applied every time you call this
     -- builtin picker
   },
- extensions = {
-    
+  extensions = {
+
   },
 }
 
-	
+
 vim.notify = require("notify")

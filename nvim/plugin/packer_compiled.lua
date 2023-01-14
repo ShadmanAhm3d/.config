@@ -149,10 +149,20 @@ _G.packer_plugins = {
     path = "/home/shaddy/.local/share/nvim/site/pack/packer/start/competitest.nvim",
     url = "https://github.com/xeluxee/competitest.nvim"
   },
+  ["darkplus.nvim"] = {
+    loaded = true,
+    path = "/home/shaddy/.local/share/nvim/site/pack/packer/start/darkplus.nvim",
+    url = "https://github.com/martinsione/darkplus.nvim"
+  },
   ["friendly-snippets"] = {
     loaded = true,
     path = "/home/shaddy/.local/share/nvim/site/pack/packer/start/friendly-snippets",
     url = "https://github.com/rafamadriz/friendly-snippets"
+  },
+  ["github-nvim-theme"] = {
+    loaded = true,
+    path = "/home/shaddy/.local/share/nvim/site/pack/packer/start/github-nvim-theme",
+    url = "https://github.com/projekt0n/github-nvim-theme"
   },
   ["gitsigns.nvim"] = {
     config = { "\27LJ\2\n-\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\18user.gitsigns\frequire\0" },
@@ -205,11 +215,6 @@ _G.packer_plugins = {
     path = "/home/shaddy/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
   },
-  neovim = {
-    loaded = true,
-    path = "/home/shaddy/.local/share/nvim/site/pack/packer/start/neovim",
-    url = "https://github.com/rose-pine/neovim"
-  },
   ["nlsp-settings.nvim"] = {
     loaded = true,
     path = "/home/shaddy/.local/share/nvim/site/pack/packer/start/nlsp-settings.nvim",
@@ -234,7 +239,7 @@ _G.packer_plugins = {
     url = "https://github.com/windwp/nvim-autopairs"
   },
   ["nvim-cmp"] = {
-    after = { "cmp-buffer", "cmp-path", "cmp-cmdline", "cmp_luasnip", "cmp-nvim-lsp" },
+    after = { "cmp-nvim-lsp", "cmp-path", "cmp-cmdline", "cmp-buffer", "cmp_luasnip" },
     config = { "\27LJ\2\n(\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\ruser.cmp\frequire\0" },
     loaded = false,
     needs_bufread = false,
@@ -253,7 +258,7 @@ _G.packer_plugins = {
     url = "https://github.com/neovim/nvim-lspconfig"
   },
   ["nvim-notify"] = {
-    config = { "\27LJ\2\n}\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\3\ftimeout\3¸\23\vstages\22fade_in_slide_out\22background_colour\16FloatShadow\nsetup\vnotify\frequire\0" },
+    config = { "\27LJ\2\n}\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\3\vstages\22fade_in_slide_out\22background_colour\16FloatShadow\ftimeout\3¸\23\nsetup\vnotify\frequire\0" },
     loaded = true,
     path = "/home/shaddy/.local/share/nvim/site/pack/packer/start/nvim-notify",
     url = "https://github.com/rcarriga/nvim-notify"
@@ -313,11 +318,6 @@ _G.packer_plugins = {
     path = "/home/shaddy/.local/share/nvim/site/pack/packer/start/sonokai",
     url = "https://github.com/sainnhe/sonokai"
   },
-  ["stackmap.nvim"] = {
-    loaded = true,
-    path = "/home/shaddy/.local/share/nvim/site/pack/packer/start/stackmap.nvim",
-    url = "https://github.com//home/Shad/plugin/stackmap.nvim"
-  },
   ["telescope.nvim"] = {
     loaded = true,
     path = "/home/shaddy/.local/share/nvim/site/pack/packer/start/telescope.nvim",
@@ -337,6 +337,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/shaddy/.local/share/nvim/site/pack/packer/start/vim-bbye",
     url = "https://github.com/moll/vim-bbye"
+  },
+  ["vscode.nvim"] = {
+    loaded = true,
+    path = "/home/shaddy/.local/share/nvim/site/pack/packer/start/vscode.nvim",
+    url = "https://github.com/Mofiqul/vscode.nvim"
   }
 }
 
@@ -373,24 +378,17 @@ end
 time([[Config for nvim-surround]], true)
 try_loadstring("\27LJ\2\n?\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\18nvim-surround\frequire\0", "config", "nvim-surround")
 time([[Config for nvim-surround]], false)
+-- Config for: nvim-notify
+time([[Config for nvim-notify]], true)
+try_loadstring("\27LJ\2\n}\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\3\vstages\22fade_in_slide_out\22background_colour\16FloatShadow\ftimeout\3¸\23\nsetup\vnotify\frequire\0", "config", "nvim-notify")
+time([[Config for nvim-notify]], false)
 -- Config for: gitsigns.nvim
 time([[Config for gitsigns.nvim]], true)
 try_loadstring("\27LJ\2\n-\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\18user.gitsigns\frequire\0", "config", "gitsigns.nvim")
 time([[Config for gitsigns.nvim]], false)
--- Config for: nvim-notify
-time([[Config for nvim-notify]], true)
-try_loadstring("\27LJ\2\n}\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\3\ftimeout\3¸\23\vstages\22fade_in_slide_out\22background_colour\16FloatShadow\nsetup\vnotify\frequire\0", "config", "nvim-notify")
-time([[Config for nvim-notify]], false)
 
 -- Command lazy-loads
 time([[Defining lazy-load commands]], true)
-pcall(vim.api.nvim_create_user_command, 'TSBufEnable', function(cmdargs)
-          require('packer.load')({'nvim-treesitter'}, { cmd = 'TSBufEnable', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
-        end,
-        {nargs = '*', range = true, bang = true, complete = function()
-          require('packer.load')({'nvim-treesitter'}, { cmd = 'TSBufEnable' }, _G.packer_plugins)
-          return vim.fn.getcompletion('TSBufEnable ', 'cmdline')
-      end})
 pcall(vim.api.nvim_create_user_command, 'TSBufDisable', function(cmdargs)
           require('packer.load')({'nvim-treesitter'}, { cmd = 'TSBufDisable', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
         end,
@@ -440,6 +438,13 @@ pcall(vim.api.nvim_create_user_command, 'TSUpdate', function(cmdargs)
           require('packer.load')({'nvim-treesitter'}, { cmd = 'TSUpdate' }, _G.packer_plugins)
           return vim.fn.getcompletion('TSUpdate ', 'cmdline')
       end})
+pcall(vim.api.nvim_create_user_command, 'TSBufEnable', function(cmdargs)
+          require('packer.load')({'nvim-treesitter'}, { cmd = 'TSBufEnable', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
+        end,
+        {nargs = '*', range = true, bang = true, complete = function()
+          require('packer.load')({'nvim-treesitter'}, { cmd = 'TSBufEnable' }, _G.packer_plugins)
+          return vim.fn.getcompletion('TSBufEnable ', 'cmdline')
+      end})
 time([[Defining lazy-load commands]], false)
 
 vim.cmd [[augroup packer_load_aucmds]]
@@ -448,8 +453,8 @@ vim.cmd [[au!]]
 time([[Defining lazy-load event autocommands]], true)
 vim.cmd [[au InsertEnter * ++once lua require("packer.load")({'nvim-cmp'}, { event = "InsertEnter *" }, _G.packer_plugins)]]
 vim.cmd [[au CmdlineEnter * ++once lua require("packer.load")({'nvim-cmp'}, { event = "CmdlineEnter *" }, _G.packer_plugins)]]
-vim.cmd [[au BufRead * ++once lua require("packer.load")({'nvim-treesitter'}, { event = "BufRead *" }, _G.packer_plugins)]]
 vim.cmd [[au BufWinEnter * ++once lua require("packer.load")({'null-ls.nvim'}, { event = "BufWinEnter *" }, _G.packer_plugins)]]
+vim.cmd [[au BufRead * ++once lua require("packer.load")({'nvim-treesitter'}, { event = "BufRead *" }, _G.packer_plugins)]]
 time([[Defining lazy-load event autocommands]], false)
 vim.cmd("augroup END")
 

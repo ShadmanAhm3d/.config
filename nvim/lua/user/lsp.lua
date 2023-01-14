@@ -22,19 +22,19 @@ lsp.configure('sumneko_lua', {
 
 mason.setup({
   ui = {
-      border = "rounded",
+    border = "rounded",
   }
 })
 
 
 lsp.set_preferences({
   suggest_lsp_servers = false,
-  sign_icons = {
-    error = 'E',
-    warn = 'W',
-    hint = 'H',
-    info = 'I'
-  }
+    sign_icons = {
+      hint = "",
+      info = "",
+      warning = "",
+      error = "",
+    },
 })
 
 lsp.on_attach(function(client, bufnr)
@@ -56,20 +56,20 @@ lsp.on_attach(function(client, bufnr)
   vim.keymap.set("n", "<leader>vrn", vim.lsp.buf.rename, opts)
   vim.keymap.set("n", "<leader>q", vim.lsp.buf.rename, opts)
   vim.keymap.set("i", "<C-h>", vim.diagnostic.setloclist, opts)
-  vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
+  vim.cmd [[ command! Format execute 'lua vim.lsp.buf.format { async = true}' ]]
 end)
 
-  lsp.setup()
---Mason for formatting 
+lsp.setup()
+--Mason for formatting
 mason_null_ls.setup({
-  ensure_installed ={
+  ensure_installed = {
     "prettier"
   }
 })
 
 
 
---diagnostics on line 
+--diagnostics on line
 vim.diagnostic.config({
   virtual_text = true,
 })

@@ -26,7 +26,7 @@ local function lsp()
         return msg
       end
     end,
-    icon = "LSP:",
+    icon = "⚡",
     color = { gui = "bold" },
   }
 end
