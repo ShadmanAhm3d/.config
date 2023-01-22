@@ -1,7 +1,9 @@
+
 --This is autocmd to hightlight texts on yank
 local augroup = vim.api.nvim_create_augroup
 local yank_group = augroup('HighlightYank', {})
 
+local general = augroup("General Settings", { clear = true })
 vim.api.nvim_create_autocmd('TextYankPost', {
   group = yank_group,
 
@@ -13,6 +15,14 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 --ends
+
+-- Disable New Line Comment
+vim.api.nvim_create_autocmd("BufEnter", {
+  callback = function()
+    vim.opt.formatoptions:remove { "c", "r", "o" }
+  end,
+  group = general,
+})
 
 --bufferline
 vim.cmd [[   
@@ -34,6 +44,7 @@ vim.cmd[[ hi SignColumn guibg=none]]
 -- ~ sign off
 vim.api.nvim_set_hl(0, "EndofBuffer", { fg="#282828", bg="none"})
 vim.api.nvim_set_hl(0, "TelescopeTitle", {  bg="black"})
+vim.api.nvim_set_hl(0, "IndentBlankLineChar", {  fg="grey"})
 
 vim.api.nvim_set_hl(0, "LineNr", { bg="#282828"} ) -- for vscode theme
 vim.api.nvim_set_hl(0, "WinSeparator", { bg = nil, fg = nil })

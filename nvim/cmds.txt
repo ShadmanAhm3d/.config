@@ -1,3 +1,0 @@
---specify path in the bufferitself
-g++ %:p && ./a.out
-

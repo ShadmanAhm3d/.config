@@ -1,3 +1,4 @@
+
 local options = {
   guicursor = "",
   backup = false, -- creates a backup file

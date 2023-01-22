@@ -1,3 +1,4 @@
+
 local opts = { noremap = true, silent = true }
 
 
@@ -69,13 +70,14 @@ keymap("n", "<leader>ff", ":Telescope find_files<CR>", opts)
 keymap("n", "<leader>fl", ":Telescope live_grep<CR>", opts)
 keymap("n", "<leader>fo", ":Telescope oldfiles<CR>", opts)
 keymap("n", "<C-p>" , ":Telescope find_files<CR>", opts)
+--CODE RUNNER 
 keymap("n", "<leader>r" , ":term g++ %:p && ./a.out<CR>", opts) --cpp run
 -- Nvimtresse
 keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
 
 --Bufferline
 
-keymap("n", "<A-w>", ":Bdelete<CR>",opts)
+keymap("n", "<A-w>", ":bdelete<CR>",opts)
 
 keymap("n", "<C-s>", ":w<CR>",opts)
 

@@ -1,2 +1,0 @@
---to change comment highlights around the ide
-  :highlight Comment guifg=#11f0c3 guibg=#ff00ff
