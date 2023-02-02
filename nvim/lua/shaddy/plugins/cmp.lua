@@ -131,6 +131,7 @@ return {
   window = {
     completion = cmp.config.window.bordered(),
     documentation = cmp.config.window.bordered(),
+    border = "single"
   },
       experimental = {
         ghost_text = true,

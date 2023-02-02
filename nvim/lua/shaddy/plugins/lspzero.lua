@@ -59,11 +59,11 @@ return {
       vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
       vim.keymap.set("n", "mp", "<cmd>Lspsaga outline<CR>", opts) --saga
       vim.keymap.set("n", "<leader>fi", "<cmd>Lspsaga lsp_finder<CR>", opts) --saga
-      vim.keymap.set("n", "K",  "<cmd>Lspsaga peek_definitions<CR>", opts) --saga
+      vim.keymap.set("n", "K",  "<cmd>Lspsaga peek_definition<CR>", opts) --saga
       vim.keymap.set("n", "<leader>a", "<cmd>Lspsaga show_buf_diagnostics<CR> ", opts) --saga
       vim.keymap.set("n", "[d", "<cmd>Lspsaga diagnostic_jump_next<CR> ", opts) --saga
       vim.keymap.set("n", "]d", "<cmd>Lspsaga diagnostic_jump_prev<CR> ", opts) --saga
-      vim.keymap.set("n", "<F5>",  "<cmd>Lspsaga code_action<CR> ", opts)
+      vim.keymap.set("n", "<F6>",  "<cmd>Lspsaga code_action<CR> ", opts)
       vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, opts)
       vim.keymap.set("n", "<leader>q", vim.lsp.buf.rename, opts)
       vim.keymap.set("i", "<C-h>", vim.diagnostic.setloclist, opts)

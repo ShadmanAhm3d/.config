@@ -6,7 +6,6 @@ return {
 'Mofiqul/vscode.nvim',
 "lunarvim/horizon.nvim",
 "sainnhe/sonokai", --sonokai
-'projekt0n/github-nvim-theme',
 "ellisonleao/gruvbox.nvim",
 -- Git related plugins
 'lewis6991/gitsigns.nvim',
