@@ -15,13 +15,12 @@ return {
   dependencies = {
     {
       "lukas-reineke/indent-blankline.nvim",
-      event = "BufReadPost",
       config = function()
         local indent_blankline = require "indent_blankline"
 
         indent_blankline.setup {
           show_current_context = true,
-          indent_blankline_char = "│",
+          indent_blankline_char = "▏",
           indent_blankline_show_trailing_blankline_indent = false,
           indent_blankline_show_first_indent_level = true,
           indent_blankline_use_treesitter = true,

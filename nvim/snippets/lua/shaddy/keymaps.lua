@@ -72,9 +72,6 @@ keymap("n", "<leader>fo", ":Telescope oldfiles<CR>", opts)
 keymap("n", "<C-p>" , ":Telescope find_files<CR>", opts)
 --CODE RUNNER 
 keymap("n", "<leader>r" , ":term g++ %:p && ./a.out<CR>", opts) --cpp run
---CODE RUNNER compitest
-keymap("n", "<leader>t" , ":CompetiTestRun<CR>", opts) --cpp run
-keymap("n", "<leader>ta" , ":CompetiTestAdd<CR>", opts) --cpp run
 -- Nvimtresse
 keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
 
@@ -83,5 +80,4 @@ keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
 keymap("n", "<A-w>", ":bdelete<CR>",opts)
 
 keymap("n", "<C-s>", ":w<CR>",opts)
-keymap("i", "<C-s>", ":w<CR>",opts)
 

@@ -63,7 +63,7 @@ return {
 				},
 			},
 			view = {
-				width = 16,
+				width = 25,
 				--    height = 30,
 				side = "left",
 				mappings = {

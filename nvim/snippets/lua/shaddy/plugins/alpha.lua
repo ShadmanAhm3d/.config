@@ -116,7 +116,6 @@ return {
     dashboard.section.buttons.val = {
       button("n", "  New file", "<Cmd>ene<CR>", {}),
       button("o", "  Recents", "<Cmd>:Telescope oldfiles <CR>", {}),
-      button("s", "勒" .. " Restore Session", [[:lua require("persistence").load() <cr>]],{}),
       button("u", " PackerSync", "<Cmd>PackerSync<CR>", {}),
       button("q", "  Quit", "<Cmd>qa<CR>", {}),
     }
@@ -162,6 +161,5 @@ return {
     }
 
     alpha.setup(opts)
-
   end,
 }

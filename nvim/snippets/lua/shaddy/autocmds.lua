@@ -37,12 +37,11 @@ vim.cmd [[  autocmd User AlphaReady set showtabline=0 | autocmd BufUnload <buffe
 --NOTE => Colors for the system
 
 vim.cmd[[ hi GitSignsAdd guibg=Normal guifg=yellow]]
-vim.api.nvim_set_hl(0, "GitSignsChange", { fg="lime", bg=Normal})
 
 
 --vertsplit highlight off
 vim.cmd[[ hi SignColumn guibg=none]]
--- ~ sign off 
+-- ~ sign off
 vim.api.nvim_set_hl(0, "EndofBuffer", { fg="#282828", bg="none"})
 vim.api.nvim_set_hl(0, "TelescopeTitle", {  bg="black"})
 vim.api.nvim_set_hl(0, "IndentBlankLineChar", {  fg="grey"})

@@ -15,19 +15,13 @@ return {
     lsp.preset("recommended")
 
     lsp.ensure_installed({
-      'lua_ls',
+      'sumneko_lua',
       'rust_analyzer',
       'clangd'
     })
 
-    --[[ lsp.css_lsp.setup{
-      autostart = true,
-      filetypes = {
-         "css", "scss", "less" ,
-      }
-    } ]]
     -- Fix Undefined global 'vim'
-    lsp.configure('lua_ls', {
+    lsp.configure('sumneko_lua', {
       settings = {
         Lua = {
           diagnostics = {
