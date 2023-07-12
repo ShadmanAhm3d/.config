@@ -17,10 +17,10 @@ vim.g.maplocalleader = " "
 
 
 require('lazy').setup('shaddy.plugins')
-vim.cmd [[colorscheme gruvbox]]
 require('shaddy.keymaps')
 require('shaddy.autocmds')
 require('shaddy.options')
+vim.cmd [[colorscheme vscode ]]
 -- Set colorscheme
 
 

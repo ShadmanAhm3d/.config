@@ -1,13 +1,20 @@
 return {
   'VonHeikemen/lsp-zero.nvim',
-  branch = 'v1.x',
+  branch = 'v2.x',
+  -- LSP Support
   dependencies = {
-    -- LSP Support
-    'neovim/nvim-lspconfig',             -- Required
-    'williamboman/mason.nvim',           -- Optional
+    'neovim/nvim-lspconfig', -- Required
+    'williamboman/mason.nvim',
     'williamboman/mason-lspconfig.nvim', -- Optional
-   "jayp0521/mason-null-ls.nvim" --mason bridge less
+    {
+      "jay-babu/mason-null-ls.nvim",
+      event = { "BufReadPre", "BufNewFile" },
+      dependencies = {
+        "jose-elias-alvarez/null-ls.nvim",
+      },
+    },
   },
+
   config = function()
     local lsp = require("lsp-zero")
     local mason_null_ls = require("mason-null-ls")
@@ -65,11 +72,11 @@ return {
       vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
       vim.keymap.set("n", "mp", "<cmd>Lspsaga outline<CR>", opts) --saga
       vim.keymap.set("n", "<leader>fi", "<cmd>Lspsaga lsp_finder<CR>", opts) --saga
-      vim.keymap.set("n", "K",  "<cmd>Lspsaga peek_definition<CR>", opts) --saga
+      vim.keymap.set("n", "K", "<cmd>Lspsaga peek_definition<CR>", opts) --saga
       vim.keymap.set("n", "<leader>a", "<cmd>Lspsaga show_buf_diagnostics<CR> ", opts) --saga
       vim.keymap.set("n", "[d", "<cmd>Lspsaga diagnostic_jump_next<CR> ", opts) --saga
       vim.keymap.set("n", "]d", "<cmd>Lspsaga diagnostic_jump_prev<CR> ", opts) --saga
-      vim.keymap.set("n", "<F6>",  "<cmd>Lspsaga code_action<CR> ", opts)
+      vim.keymap.set("n", "<F6>", "<cmd>Lspsaga code_action<CR> ", opts)
       vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, opts)
       vim.keymap.set("n", "<leader>q", vim.lsp.buf.rename, opts)
       vim.keymap.set("i", "<C-h>", vim.diagnostic.setloclist, opts)
