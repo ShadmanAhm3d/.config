@@ -33,6 +33,10 @@ return {
         }
       end,
     }, -- Indentline
+    {
+       "HiPhish/nvim-ts-rainbow2",
+    },
+
   },
   build = ":TSUpdate",
   config = function()
@@ -46,6 +50,16 @@ return {
       },
       autopairs = {
         enable = true,
+      },
+
+      rainbow = {
+        enable = true,
+        -- list of languages you want to disable the plugin for
+        disable = { 'jsx', 'cpp' },
+        -- Which query to use for finding delimiters
+        query = 'rainbow-parens',
+        -- Highlight the entire buffer all at once
+        strategy = require('ts-rainbow').strategy.global,
       },
       indent = { enable = false, disable = {} },
       playground = {

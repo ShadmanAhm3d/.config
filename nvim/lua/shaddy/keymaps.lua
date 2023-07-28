@@ -76,7 +76,7 @@ keymap("n", "<leader>r" , ":term g++ %:p && ./a.out<CR>", opts) --cpp run
 keymap("n", "<leader>t" , ":CompetiTestRun<CR>", opts) --cpp run
 keymap("n", "<leader>ta" , ":CompetiTestAdd<CR>", opts) --cpp run
 -- Nvimtresse
-keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
+keymap("n", "<leader>e", ":Neotree toggle<CR>", opts)
 
 --Bufferline
 

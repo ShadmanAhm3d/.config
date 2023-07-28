@@ -2,7 +2,7 @@
   "Competitive Programming": {
     "prefix": "cpt",
     "body": [
-      "// Competitive Programming Setup",
+      "// THis is from vscode Competitive Programming Setup",
       "#include <algorithm>",
       "#include <chrono>",
       "#include <cmath>",
