@@ -1,4 +1,32 @@
-return {
+return{
+
+
+
+  --no neckpain.vnim
+  {
+
+    "shortcuts/no-neck-pain.nvim",
+    branch = "main",
+    config  = function()
+      require("no-neck-pain").setup{
+        width = 70,  
+        relativenumber = true,
+
+      }
+    end
+
+  },
+--live-server
+{
+  'barrett-ruth/live-server.nvim',
+  build = 'yarn global add live-server',
+  config = true
+},
+
+
+
+ --transaprent.vnim
+ {
   "xiyaowong/nvim-transparent",
   config = function()
     require("transparent").setup({
@@ -23,4 +51,5 @@ return {
 
 
   end
+},
 }

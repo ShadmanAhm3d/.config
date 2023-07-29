@@ -73,10 +73,12 @@ keymap("n", "<C-p>" , ":Telescope find_files<CR>", opts)
 --CODE RUNNER 
 keymap("n", "<leader>r" , ":term g++ %:p && ./a.out<CR>", opts) --cpp run
 --CODE RUNNER compitest
-keymap("n", "<leader>t" , ":CompetiTestRun<CR>", opts) --cpp run
-keymap("n", "<leader>ta" , ":CompetiTestAdd<CR>", opts) --cpp run
+--moved
+--[[ keymap("n", "<leader>t" , ":competitestrun<cr>", opts) --cpp run
+keymap("n", "<leader>ta" , ":competitestadd<cr>", opts) --cpp run ]]
+
 -- Nvimtresse
-keymap("n", "<leader>e", ":Neotree toggle<CR>", opts)
+-- keymap("n", "<leader>e", ":Neotree toggle<CR>", opts)
 
 --Bufferline
 
