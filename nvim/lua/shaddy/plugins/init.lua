@@ -5,7 +5,6 @@ return {
 'martinsione/darkplus.nvim',
 'Mofiqul/vscode.nvim',
 "sainnhe/sonokai", --sonokai
-"ellisonleao/gruvbox.nvim",
 
 'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
  
