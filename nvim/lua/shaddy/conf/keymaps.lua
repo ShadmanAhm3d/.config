@@ -34,8 +34,8 @@ keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 keymap("n", "<A-i>", ":bnext<CR>", opts)
 keymap("n", "<S-h>", ":bprevious<CR>", opts)
 -- Move text up and down
-keymap("n", "<A-j>", "<Esc>:m .+1<CR>==gi", opts)
-keymap("n", "<A-k>", "<Esc>:m .-2<CR>==gi", opts)
+-- keymap("n", "<A-j>", "<Esc>:m .+1<CR>==gi", opts)
+-- keymap("n", "<A-k>", "<Esc>:m .-2<CR>==gi", opts)
 
 -- Insert --
 -- Press jk fast to enter
@@ -71,11 +71,29 @@ keymap("n", "<leader>fl", ":Telescope live_grep<CR>", opts)
 keymap("n", "<leader>fo", ":Telescope oldfiles<CR>", opts)
 keymap("n", "<C-p>" , ":Telescope find_files<CR>", opts)
 --CODE RUNNER 
-keymap("n", "<leader>r" , ":term g++ %:p && ./a.out<CR>", opts) --cpp run
---CODE RUNNER compitest
---moved
---[[ keymap("n", "<leader>t" , ":competitestrun<cr>", opts) --cpp run
-keymap("n", "<leader>ta" , ":competitestadd<cr>", opts) --cpp run ]]
+ keymap("n", "<leader>r" , ":vsplit | term g++ %:p && ./a.out<CR>", opts)
+
+
+--minimalist
+
+ keymap("n", "<leader>m" , ":TZMinimalist<CR>", opts)
+
+
+
+
+
+keymap( "n", "<leader>ta", "<Cmd>CompetiTest add_testcase<CR>", opts )
+keymap( "n", "<leader>tr", "<Cmd>CompetiTest run<CR>", opts )
+
+
+
+
+
+
+
+
+
+
 
 -- Nvimtresse
 -- keymap("n", "<leader>e", ":Neotree toggle<CR>", opts)
@@ -86,4 +104,13 @@ keymap("n", "<A-w>", ":bdelete<CR>",opts)
 
 keymap("n", "<C-s>", ":w<CR>",opts)
 keymap("i", "<C-s>", ":w<CR>",opts)
+
+
+
+
+
+--dap
+
+keymap( "n", "<leader>db", "<Cmd>DapToggleBreakpoint<CR>", opts )
+keymap( "n", "<leader>dr", "<Cmd>DapContinue<CR>", opts )
 

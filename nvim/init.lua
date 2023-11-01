@@ -20,7 +20,7 @@ require('lazy').setup('shaddy.plugins')
 require('shaddy.conf.options')
 require('shaddy.conf.autocmds')
 require('shaddy.conf.keymaps')
-vim.cmd [[colorscheme vscode ]]
+vim.cmd [[colorscheme rose-pine ]]
 -- Set colorscheme
 
 

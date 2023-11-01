@@ -1,0 +1,6 @@
+{
+    "diagnostics.globals": [
+        "vim",
+        "run_cpp_in_toggleterm"
+    ]
+}

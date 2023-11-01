@@ -246,13 +246,12 @@ return{
 
 
 
-  --treesitter.nvim
+  --[[ --treesitter.nvim
   
 
   {
     "nvim-treesitter/nvim-treesitter",
     module = true,
-    event = { "BufReadPost", "BufNewFile" },
     cmd = {
       "TSInstall",
       "TSInstallInfo",
@@ -264,29 +263,6 @@ return{
       "TSModuleInfo",
     },
     dependencies = {
-      {
-        "lukas-reineke/indent-blankline.nvim",
-        event = { "BufReadPost", "BufNewFile" },
-        opts = {
-          -- char = "▏",
-          char = "│",
-          filetype_exclude = {
-            "help",
-            "alpha",
-            "dashboard",
-            "neo-tree",
-            "Trouble",
-            "lazy",
-            "mason",
-            "notify",
-            "toggleterm",
-            "lazyterm",
-          },
-          show_trailing_blankline_indent = false,
-          show_current_context = false,
-        },
-      },
-
       -- Active indent guide and indent text objects. When you're browsing
       -- code, this highlights the current level of indentation, and animates
       -- the highlighting.
@@ -329,7 +305,7 @@ return{
       local configs = require "nvim-treesitter.configs"
 
       configs.setup {
-        ensure_installed = { "cpp", "lua", "c", "go", "python", "java" }, -- one of "all" or a list of languages
+        ensure_installed = { "lua"  }, -- one of "all" or a list of languages
         highlight = {
           enable = true, -- false will disable the whole extension
           disable = { "css" }, -- list of language that will be disabled
@@ -341,9 +317,9 @@ return{
         rainbow = {
           enable = true,
           -- list of languages you want to disable the plugin for
-          disable = { 'jsx', 'cpp' },
+          disable = { },
           -- Which query to use for finding delimiters
-          query = 'rainbow-parens',
+          -- query = 'rainbow-parens',
           -- Highlight the entire buffer all at once
           strategy = require('ts-rainbow').strategy.global,
         },
@@ -352,9 +328,9 @@ return{
           enable = true,
           disable = {},
           updatetime = 25, -- Debounced time for highlighting nodes in the playground from source code
-          persist_queries = false, -- Whether the query persists across vim sessions
+          -- persist_queries = false, -- Whether the query persists across vim sessions
           keybindings = {
-            toggle_query_editor = "o",
+            -- toggle_query_editor = "o",
             toggle_hl_groups = "i",
             toggle_injected_languages = "t",
             toggle_anonymous_nodes = "a",
@@ -371,9 +347,130 @@ return{
 
   }
 
+]]
+
+ {
+	"nvim-treesitter/nvim-treesitter",
+	dependencies = {
+		"RRethy/nvim-treesitter-textsubjects",
+		"nvim-treesitter/nvim-treesitter-textobjects",
+
+    {
+      "echasnovski/mini.indentscope",
+      version = false, -- wait till new 0.7.0 release to put it back on semver
+      event = { "BufReadPre", "BufNewFile" },
+      opts = {
+        -- symbol = "▏",
+        symbol = "│",
+        options = { try_as_border = true },
+      },
+      init = function()
+        vim.api.nvim_create_autocmd("FileType", {
+          pattern = {
+            "help",
+            "alpha",
+            "dashboard",
+            "neo-tree",
+            "Trouble",
+            "lazy",
+            "mason",
+            "notify",
+            "toggleterm",
+            "lazyterm",
+          },
+          callback = function()
+            vim.b.miniindentscope_disable = true
+          end,
+        })
+      end,
+    },
+  },
+	event = { "BufReadPost", "BufNewFile" },
+	config = function()
+		local treesitter = require("nvim-treesitter.configs")
+
+		---@diagnostic disable-next-line
+		treesitter.setup({
+			ensure_installed = {
+				"bash",
+				"css",
+				"cpp",
+				"graphql",
+				"html",
+				"javascript",
+				"json",
+				"lua",
+				"markdown",
+				"markdown_inline",
+				"regex",
+				"tsx",
+				"typescript",
+			},
+			highlight = {
+				enable = true,
+			},
+			match = {
+				enable = true,
+			},
+			incremental_selection = {
+				enable = true,
+				keymaps = {
+					init_selection = "zi",
+					node_incremental = "zi",
+					scope_incremental = "zo",
+					node_decremental = "zd",
+				},
+			},
+			indent = {
+				enable = true,
+			},
+			-- textobjects = {
+			--   select = {
+			--     enable = true,
+			--     lookahead = true,
+			--     keymaps = {
+			--       ["af"] = "@function.outer",
+			--       ["if"] = "@function.inner",
+			--       ["ac"] = "@class.outer",
+			--       ["ic"] = "@class.inner",
+			--
+			--       -- xml attribute
+			--       ["ax"] = "@attribute.outer",
+			--       ["ix"] = "@attribute.inner",
+			--
+			--       -- json
+			--       ["ak"] = "@key.outer",
+			--       ["ik"] = "@key.inner",
+			--       ["av"] = "@value.outer",
+			--       ["iv"] = "@value.inner",
+			--     },
+			--   },
+			swap = {
+				enable = true,
+				swap_next = {
+					["<leader>rp"] = "@parameter.inner",
+				},
+				swap_previous = {
+					["<leader>rP"] = "@parameter.inner",
+				},
+			},
+			textsubjects = {
+				enable = true,
+				keymaps = {
+					["."] = "textsubjects-smart",
+					[";"] = "textsubjects-container-outer",
+					["i;"] = "textsubjects-container-inner",
+				},
+			},
+		})
 
 
 
+	end,
+	build = function()
+		vim.cmd [[TSUpdate]]
+	end,
+}
 
 
 }

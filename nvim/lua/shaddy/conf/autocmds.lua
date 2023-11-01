@@ -52,11 +52,5 @@ vim.api.nvim_set_hl(0, "WinSeparator", { bg = nil, fg = nil })
 vim.api.nvim_set_hl(0, "NvimTreeWinSeparator", { link = "WinSeparator" })
 
 
-
-
-
-
-
-
 -- Define a custom keybinding to exit Zen mode
 --[[ vim.api.nvim_set_keymap("n", "<Leader>er", ":ZenMode<CR>", { silent = true }) ]]
