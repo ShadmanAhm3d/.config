@@ -127,7 +127,7 @@ return {
         autochdir = true,
         highlights = {
           Normal = {
-          guibg="#2e2f30",
+          guibg="#191724",
           },
           NormalFloat = {
             link = "Normal",
