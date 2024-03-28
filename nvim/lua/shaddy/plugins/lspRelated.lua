@@ -1,104 +1,256 @@
-return{
+return {
 
-  --lspzero.nvim
+
+
+
+ --[[ {
+ "hrsh7th/nvim-cmp",
+  event = "InsertEnter",
+  dependencies = {
+    "hrsh7th/cmp-buffer", -- source for text in buffer
+    "hrsh7th/cmp-path", -- source for file system paths
+    "L3MON4D3/LuaSnip", -- snippet engine
+    "saadparwaiz1/cmp_luasnip", -- for autocompletion
+    "rafamadriz/friendly-snippets", -- useful snippets
+    "onsails/lspkind.nvim", -- vs-code like pictograms
+  },
+  config = function()
+    local cmp = require("cmp")
+
+    local luasnip = require("luasnip")
+
+    local lspkind = require("lspkind")
+
+    -- loads vscode style snippets from installed plugins (e.g. friendly-snippets)
+      require("luasnip.loaders.from_snipmate").lazy_load { paths = vim.fn.stdpath "config" .. "/snippets/snipmate" }
+      require("luasnip.loaders.from_vscode").lazy_load()
+
+    cmp.setup({
+      completion = {
+        completeopt = "menu,menuone,preview,noselect",
+      },
+      snippet = { -- configure how nvim-cmp interacts with snippet engine
+        expand = function(args)
+          luasnip.lsp_expand(args.body)
+        end,
+      },
+      mapping = cmp.mapping.preset.insert({
+        ["<C-k>"] = cmp.mapping.select_prev_item(), -- previous suggestion
+        ["<C-j>"] = cmp.mapping.select_next_item(), -- next suggestion
+        ["<C-b>"] = cmp.mapping.scroll_docs(-4),
+        ["<C-f>"] = cmp.mapping.scroll_docs(4),
+        ["<C-Space>"] = cmp.mapping.complete(), -- show completion suggestions
+        ["<C-e>"] = cmp.mapping.abort(), -- close completion window
+        ["<CR>"] = cmp.mapping.confirm({ select = false }),
+      }),
+      -- sources for autocompletion
+        
+      sources = cmp.config.sources({
+        { name = "nvim_lsp" },
+        { name = "luasnip" }, -- snippets
+        { name = "buffer" }, -- text within current buffer
+        { name = "path" }, -- file system paths
+      }),
+      -- configure lspkind for vs-code like pictograms in completion menu
+      formatting = {
+        format = lspkind.cmp_format({
+          maxwidth = 50,
+          ellipsis_char = "...",
+        }),
+      },
+    })
+  end,
+  },
+
+
+
+
+]]
+
+
+
+
+  --cmp
+
   {
-    'VonHeikemen/lsp-zero.nvim',
-    branch = 'v2.x',
-    -- LSP Support
+    "hrsh7th/nvim-cmp",
+    event = { "InsertEnter", "CmdlineEnter" },
     dependencies = {
-      'neovim/nvim-lspconfig', -- Required
-      'williamboman/mason.nvim',
-      'williamboman/mason-lspconfig.nvim', -- Optional
+      "hrsh7th/cmp-buffer",       -- Buffer Completions
+      "hrsh7th/cmp-path",         -- Path Completions
       {
-        "jay-babu/mason-null-ls.nvim",
-        event = { "BufReadPre", "BufNewFile" },
-        dependencies = {
-          "jose-elias-alvarez/null-ls.nvim",
-        },
+        "saadparwaiz1/cmp_luasnip", -- Snippet Completions
+        event = { "InsertEnter" },
+      },
+      "hrsh7th/cmp-nvim-lsp",       -- LSP Completions
+      "hrsh7th/cmp-nvim-lua",       -- Lua Completions
+      "hrsh7th/cmp-cmdline",        -- CommandLine Completions
+      "L3MON4D3/LuaSnip",           -- Snippet Engine
+      "rafamadriz/friendly-snippets", -- Bunch of Snippets
+      {
+        "windwp/nvim-autopairs",
+        config = function()
+          local autopairs = require "nvim-autopairs"
+
+          autopairs.setup {
+            check_ts = true, -- treesitter integration
+            disable_filetype = { "TelescopePrompt" },
+          }
+
+          local cmp_autopairs = require "nvim-autopairs.completion.cmp"
+          local cmp_status_ok, cmp = pcall(require, "cmp")
+          if not cmp_status_ok then
+            return
+          end
+          cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done {})
+        end,
       },
     },
-
     config = function()
-      local lsp = require("lsp-zero")
-      local mason_null_ls = require("mason-null-ls")
-      local mason = require("mason")
-      lsp.preset("recommended")
+      local cmp = require "cmp"
+      local luasnip = require "luasnip"
 
-      lsp.ensure_installed({
-        'lua_ls',
-      })
+      require("luasnip.loaders.from_snipmate").lazy_load { paths = vim.fn.stdpath "config" .. "/snippets/snipmate" }
+      require("luasnip.loaders.from_vscode").lazy_load()
+      -- require("luasnip.loaders.from_vscode").lazy_load { paths = vim.fn.stdpath "config" .. "/snippets/vscode" }
 
-      --[[ lsp.css_lsp.setup{
-        autostart = true,
-        filetypes = {
-          "css", "scss", "less" ,
-        }
-      } ]]
-      -- Fix Undefined global 'vim'
-      lsp.configure('lua_ls', {
-        settings = {
-          Lua = {
-            diagnostics = {
-              globals = { 'vim' }
-            }
-          }
-        }
-      })
+      local kind_icons = {
+        Text = "",
+        Method = "",
+        Function = "",
+        Constructor = "",
+        Field = "ﰠ",
+        Variable = "",
+        Class = "ﴯ",
+        Interface = "",
+        Module = "",
+        Property = "ﰠ",
+        Unit = "塞",
+        Value = "",
+        Enum = "",
+        Keyword = "",
+        Snippet = "",
+        Color = "",
+        File = "",
+        Reference = "",
+        Folder = "",
+        EnumMember = "",
+        Struct = "פּ",
+        Event = "",
+        Operator = "",
+        TypeParameter = "",
+      }
 
-      mason.setup({
-        ui = {
-          border = "rounded",
-        }
-      })
+      cmp.setup {
+        snippet = {
+          expand = function(args)
+            luasnip.lsp_expand(args.body) -- For `luasnip` users.
+          end,
+        },
 
+        mapping = cmp.mapping.preset.insert {
+          ["<C-k>"] = cmp.mapping.select_prev_item(),
+          ["<C-j>"] = cmp.mapping.select_next_item(),
+          ["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-1)),
+          ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(1)),
+          ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
+          ["<C-e>"] = cmp.mapping {
+            i = cmp.mapping.abort(),
+            c = cmp.mapping.close(),
+          },
+          -- Accept currently selected item. If none selected, `select` first item.
+          -- Set `select` to `false` to only confirm explicitly selected items.
+          ["<CR>"] = cmp.mapping.confirm { select = false },
+          ["<Tab>"] = cmp.mapping(function(fallback)
+            if cmp.visible() then
+              cmp.select_next_item()
+            elseif luasnip.expandable() then
+              luasnip.expand()
+            elseif luasnip.expand_or_jumpable() then
+              luasnip.expand_or_jump()
+            else
+              fallback()
+            end
+          end, {
+            "i",
+            "s",
+          }),
+          ["<S-Tab>"] = cmp.mapping(function(fallback)
+            if cmp.visible() then
+              cmp.select_prev_item()
+            elseif luasnip.jumpable(-1) then
+              luasnip.jump(-1)
+            else
+              fallback()
+            end
+          end, {
+            "i",
+            "s",
+          }),
+        },
+        formatting = {
+          format = function(_, vim_item)
+            vim_item.kind = string.format("%s %s", kind_icons[vim_item.kind], vim_item.kind)
+            return vim_item
+          end,
+        },
+        sources = {
+          { name = "nvim_lsp" },
+--[[           { name = "nvim_lua" }, ]]
+          { name = "luasnip" },
+          { name = "buffer" },
+          { name = "path" },
+        },
+        confirm_opts = {
+          behavior = cmp.ConfirmBehavior.Replace,
+          select = false,
+        },
+  -- Set minimum keyword length for auto-completion
+      completion = {
+        keyword_length = 2,
+      },
+        window = {
+          completion = cmp.config.window.bordered(),
+          documentation = cmp.config.window.bordered(),
+          border = "single"
+        },
+        experimental = {
+          ghost_text = true,
+        },
+      }
 
-      lsp.set_preferences({
-        suggest_lsp_servers = false,
-        sign_icons = {
-          hint = "",
-          info = "",
-          warning = "",
-          error = "",
+      cmp.setup.cmdline(":", {
+        mapping = cmp.mapping.preset.cmdline(),
+        sources = {
+          { name = "cmdline" },
+        },
+        window = {
+          completion = cmp.config.window.bordered(),
+          documentation = cmp.config.window.bordered(),
+        },
+        formatting = {
+          -- fields = { 'abbr' },
+          format = function(_, vim_item)
+            vim_item.kind = string.format("%s %s", kind_icons[vim_item.kind], vim_item.kind)
+            return vim_item
+          end,
         },
       })
-
-      lsp.on_attach(function(client, bufnr)
-        local opts = { buffer = bufnr, remap = false }
-
-        if client.name == "eslint" then
-          vim.cmd.LspStop('eslint')
-          return
-        end
-
-        vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-        vim.keymap.set("n", "mp", "<cmd>Lspsaga outline<CR>", opts) --saga
-        vim.keymap.set("n", "<leader>fi", "<cmd>Lspsaga lsp_finder<CR>", opts) --saga
-        vim.keymap.set("n", "K", "<cmd>Lspsaga peek_definition<CR>", opts) --saga
-        vim.keymap.set("n", "<leader>a", "<cmd>Lspsaga show_buf_diagnostics<CR> ", opts) --saga
-        vim.keymap.set("n", "[d", "<cmd>Lspsaga diagnostic_jump_next<CR> ", opts) --saga
-        vim.keymap.set("n", "]d", "<cmd>Lspsaga diagnostic_jump_prev<CR> ", opts) --saga
-        vim.keymap.set("n", "<F6>", "<cmd>Lspsaga code_action<CR> ", opts)
-        vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, opts)
-        vim.keymap.set("n", "<leader>q", vim.lsp.buf.rename, opts)
-        vim.keymap.set("i", "<C-h>", vim.diagnostic.setloclist, opts)
-        vim.cmd [[ command! Format execute 'lua vim.lsp.buf.format { async = true}' ]]
-      end)
-
-      lsp.setup()
-      --Mason for formatting
-      mason_null_ls.setup({
-        ensure_installed = {
-          "prettier"
-        }
-      })
-
-      --diagnostics on line
-      vim.diagnostic.config({
-        virtual_text = true,
-      })
-    end
+    end,
 
   },
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -246,26 +398,17 @@ return{
 
 
 
-  --[[ --treesitter.nvim
-  
+
+
+
+
 
   {
     "nvim-treesitter/nvim-treesitter",
-    module = true,
-    cmd = {
-      "TSInstall",
-      "TSInstallInfo",
-      "TSUpdate",
-      "TSBufEnable",
-      "TSBufDisable",
-      "TSEnable",
-      "TSDisable",
-      "TSModuleInfo",
-    },
     dependencies = {
-      -- Active indent guide and indent text objects. When you're browsing
-      -- code, this highlights the current level of indentation, and animates
-      -- the highlighting.
+      "RRethy/nvim-treesitter-textsubjects",
+      "nvim-treesitter/nvim-treesitter-textobjects",
+
       {
         "echasnovski/mini.indentscope",
         version = false, -- wait till new 0.7.0 release to put it back on semver
@@ -295,182 +438,90 @@ return{
           })
         end,
       },
-      {
-        "HiPhish/nvim-ts-rainbow2",
-      },
-
     },
-    build = ":TSUpdate",
+    event = { "BufReadPost", "BufNewFile" },
     config = function()
-      local configs = require "nvim-treesitter.configs"
+      local treesitter = require("nvim-treesitter.configs")
 
-      configs.setup {
-        ensure_installed = { "lua"  }, -- one of "all" or a list of languages
+      ---@diagnostic disable-next-line
+      treesitter.setup({
+        ensure_installed = {
+          "bash",
+          "css",
+          "cpp",
+          "graphql",
+          "html",
+          "javascript",
+          "json",
+          "lua",
+          "markdown",
+          "markdown_inline",
+          "regex",
+          "tsx",
+          "typescript",
+        },
         highlight = {
-          enable = true, -- false will disable the whole extension
-          disable = { "css" }, -- list of language that will be disabled
-        },
-        autopairs = {
           enable = true,
         },
-
-        rainbow = {
+        match = {
           enable = true,
-          -- list of languages you want to disable the plugin for
-          disable = { },
-          -- Which query to use for finding delimiters
-          -- query = 'rainbow-parens',
-          -- Highlight the entire buffer all at once
-          strategy = require('ts-rainbow').strategy.global,
         },
-        indent = { enable = false, disable = {} },
-        playground = {
+        incremental_selection = {
           enable = true,
-          disable = {},
-          updatetime = 25, -- Debounced time for highlighting nodes in the playground from source code
-          -- persist_queries = false, -- Whether the query persists across vim sessions
-          keybindings = {
-            -- toggle_query_editor = "o",
-            toggle_hl_groups = "i",
-            toggle_injected_languages = "t",
-            toggle_anonymous_nodes = "a",
-            toggle_language_display = "I",
-            focus_language = "f",
-            unfocus_language = "F",
-            update = "R",
-            goto_node = "<cr>",
-            show_help = "?",
+          keymaps = {
+            init_selection = "zi",
+            node_incremental = "zi",
+            scope_incremental = "zo",
+            node_decremental = "zd",
           },
         },
-      }
+        indent = {
+          enable = true,
+        },
+        -- textobjects = {
+        --   select = {
+        --     enable = true,
+        --     lookahead = true,
+        --     keymaps = {
+        --       ["af"] = "@function.outer",
+        --       ["if"] = "@function.inner",
+        --       ["ac"] = "@class.outer",
+        --       ["ic"] = "@class.inner",
+        --
+        --       -- xml attribute
+        --       ["ax"] = "@attribute.outer",
+        --       ["ix"] = "@attribute.inner",
+        --
+        --       -- json
+        --       ["ak"] = "@key.outer",
+        --       ["ik"] = "@key.inner",
+        --       ["av"] = "@value.outer",
+        --       ["iv"] = "@value.inner",
+        --     },
+        --   },
+        swap = {
+          enable = true,
+          swap_next = {
+            ["<leader>rp"] = "@parameter.inner",
+          },
+          swap_previous = {
+            ["<leader>rP"] = "@parameter.inner",
+          },
+        },
+        textsubjects = {
+          enable = true,
+          keymaps = {
+            ["."] = "textsubjects-smart",
+            [";"] = "textsubjects-container-outer",
+            ["i;"] = "textsubjects-container-inner",
+          },
+        },
+      })
     end,
-
+    build = function()
+      vim.cmd [[TSUpdate]]
+    end,
   }
-
-]]
-
- {
-	"nvim-treesitter/nvim-treesitter",
-	dependencies = {
-		"RRethy/nvim-treesitter-textsubjects",
-		"nvim-treesitter/nvim-treesitter-textobjects",
-
-    {
-      "echasnovski/mini.indentscope",
-      version = false, -- wait till new 0.7.0 release to put it back on semver
-      event = { "BufReadPre", "BufNewFile" },
-      opts = {
-        -- symbol = "▏",
-        symbol = "│",
-        options = { try_as_border = true },
-      },
-      init = function()
-        vim.api.nvim_create_autocmd("FileType", {
-          pattern = {
-            "help",
-            "alpha",
-            "dashboard",
-            "neo-tree",
-            "Trouble",
-            "lazy",
-            "mason",
-            "notify",
-            "toggleterm",
-            "lazyterm",
-          },
-          callback = function()
-            vim.b.miniindentscope_disable = true
-          end,
-        })
-      end,
-    },
-  },
-	event = { "BufReadPost", "BufNewFile" },
-	config = function()
-		local treesitter = require("nvim-treesitter.configs")
-
-		---@diagnostic disable-next-line
-		treesitter.setup({
-			ensure_installed = {
-				"bash",
-				"css",
-				"cpp",
-				"graphql",
-				"html",
-				"javascript",
-				"json",
-				"lua",
-				"markdown",
-				"markdown_inline",
-				"regex",
-				"tsx",
-				"typescript",
-			},
-			highlight = {
-				enable = true,
-			},
-			match = {
-				enable = true,
-			},
-			incremental_selection = {
-				enable = true,
-				keymaps = {
-					init_selection = "zi",
-					node_incremental = "zi",
-					scope_incremental = "zo",
-					node_decremental = "zd",
-				},
-			},
-			indent = {
-				enable = true,
-			},
-			-- textobjects = {
-			--   select = {
-			--     enable = true,
-			--     lookahead = true,
-			--     keymaps = {
-			--       ["af"] = "@function.outer",
-			--       ["if"] = "@function.inner",
-			--       ["ac"] = "@class.outer",
-			--       ["ic"] = "@class.inner",
-			--
-			--       -- xml attribute
-			--       ["ax"] = "@attribute.outer",
-			--       ["ix"] = "@attribute.inner",
-			--
-			--       -- json
-			--       ["ak"] = "@key.outer",
-			--       ["ik"] = "@key.inner",
-			--       ["av"] = "@value.outer",
-			--       ["iv"] = "@value.inner",
-			--     },
-			--   },
-			swap = {
-				enable = true,
-				swap_next = {
-					["<leader>rp"] = "@parameter.inner",
-				},
-				swap_previous = {
-					["<leader>rP"] = "@parameter.inner",
-				},
-			},
-			textsubjects = {
-				enable = true,
-				keymaps = {
-					["."] = "textsubjects-smart",
-					[";"] = "textsubjects-container-outer",
-					["i;"] = "textsubjects-container-inner",
-				},
-			},
-		})
-
-
-
-	end,
-	build = function()
-		vim.cmd [[TSUpdate]]
-	end,
-}
 
 
 }

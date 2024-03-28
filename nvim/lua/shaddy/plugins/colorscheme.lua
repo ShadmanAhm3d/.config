@@ -7,6 +7,11 @@ return {
                 dark_variant = 'main',
                 disable_float_background = false,
                 disable_italics = true,
+                 styles = {
+                    bold = true,
+                    italic = false,
+                    transparency = false,
+                },
             })
         end,
     },

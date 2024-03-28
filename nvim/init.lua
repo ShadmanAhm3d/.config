@@ -20,6 +20,14 @@ require('lazy').setup('shaddy.plugins')
 require('shaddy.conf.options')
 require('shaddy.conf.autocmds')
 require('shaddy.conf.keymaps')
+
+vim.api.nvim_create_autocmd("ColorScheme", {
+	pattern = "*",
+	callback = function()
+		vim.api.nvim_set_hl(0, "MiniIndentscopeSymbol", { fg = "#3e99fa" })
+	end,
+})
+
 vim.cmd [[colorscheme rose-pine ]]
 -- Set colorscheme
 

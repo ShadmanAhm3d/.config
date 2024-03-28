@@ -1,0 +1,23 @@
+snippet maths mathsCPP
+
+  int power(int a,int n,int m=MOD){
+     n = m-2;
+     int res = 1;
+     while(n){
+        if(n&1){
+           res=(res*a)% m;
+        }
+
+        n>>=1;
+        a = (a * a) %m ;
+     }
+
+     return res;
+
+  }
+
+  int modinverser(int n , int m = MOD){
+     return power(n,m-2);
+
+  }
+   
