@@ -1,6 +1,4 @@
-
 local opts = { noremap = true, silent = true }
-
 
 -- Shorten function name
 local keymap = vim.api.nvim_set_keymap
@@ -8,7 +6,6 @@ local keymap = vim.api.nvim_set_keymap
 keymap("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
-
 
 -- Modes
 --   normal_mode = "n",
@@ -18,6 +15,9 @@ vim.g.maplocalleader = " "
 --   term_mode = "t",
 --   command_mode = "c",
 
+-- **Tabs**
+--[[ keymap("n", "<S-Tab>", ":tabprevious<CR>", opts) -- Switch to the previous tab
+keymap("n", "<Tab>", ":tabnext<CR>", opts) -- Switch to the next tab ]]
 -- Normal --
 -- Better window navigation
 keymap("n", "<C-h>", "<C-w>h", opts)
@@ -69,48 +69,28 @@ keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 keymap("n", "<leader>ff", ":Telescope find_files<CR>", opts)
 keymap("n", "<leader>fl", ":Telescope live_grep<CR>", opts)
 keymap("n", "<leader>fo", ":Telescope oldfiles<CR>", opts)
-keymap("n", "<C-p>" , ":Telescope find_files<CR>", opts)
---CODE RUNNER 
- keymap("n", "<leader>r" , ":vsplit | term g++ %:p && ./a.out<CR>", opts)
-
+keymap("n", "<C-p>", ":Telescope find_files<CR>", opts)
+--CODE RUNNER
+keymap("n", "<leader>r", ":vsplit | term g++ %:p && ./a.out<CR>", opts)
 
 --minimalist
 
- keymap("n", "<leader>m" , ":TZMinimalist<CR>", opts)
+keymap("n", "<leader>m", ":TZMinimalist<CR>", opts)
 
-
-
-
-
-keymap( "n", "<leader>ta", "<Cmd>CompetiTest add_testcase<CR>", opts )
-keymap( "n", "<leader>tr", "<Cmd>CompetiTest run<CR>", opts )
-
-
-
-
-
-
-
-
-
-
+keymap("n", "<leader>ta", "<Cmd>CompetiTest add_testcase<CR>", opts)
+keymap("n", "<leader>tr", "<Cmd>CompetiTest run<CR>", opts)
 
 -- Nvimtresse
 -- keymap("n", "<leader>e", ":Neotree toggle<CR>", opts)
 
 --Bufferline
 
-keymap("n", "<A-w>", ":bdelete<CR>",opts)
+keymap("n", "<A-w>", ":bdelete<CR>", opts)
 
-keymap("n", "<C-s>", ":w<CR>",opts)
-keymap("i", "<C-s>", ":w<CR>",opts)
-
-
-
-
+keymap("n", "<C-s>", ":w<CR>", opts)
+keymap("i", "<C-s>", ":w<CR>", opts)
 
 --dap
 
-keymap( "n", "<leader>db", "<Cmd>DapToggleBreakpoint<CR>", opts )
-keymap( "n", "<leader>dr", "<Cmd>DapContinue<CR>", opts )
-
+keymap("n", "<leader>db", "<Cmd>DapToggleBreakpoint<CR>", opts)
+keymap("n", "<leader>dr", "<Cmd>DapContinue<CR>", opts)

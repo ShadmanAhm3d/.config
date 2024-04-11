@@ -4,7 +4,7 @@ return {
         "rose-pine/neovim",
         config = function()
             require('rose-pine').setup({
-                dark_variant = 'main',
+                 dark_variant = 'main',
                 disable_float_background = false,
                 disable_italics = true,
                  styles = {
@@ -25,8 +25,10 @@ return {
             }
         end,
     },
-    {
-        "BeardedBear/bearded-theme",
- 
+
+    { "ellisonleao/gruvbox.nvim", priority = 1000 , config = true, opts = ...},
+    { "luisiacc/gruvbox-baby" ,
+        config= function()
+        end
     },
 }
