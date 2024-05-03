@@ -238,13 +238,13 @@ return {
 				shade_terminals = false,
 				insert_mappings = true,
 				persist_size = true,
-				direction = "vertical",
+				direction = "horizontal",
 				close_on_exit = true,
 				shell = vim.o.shell,
 				autochdir = true,
 				highlights = {
 					Normal = {
-						guibg = "#191724",
+						-- guibg = "#191724",
 					},
 					NormalFloat = {
 						link = "Normal",
@@ -657,10 +657,10 @@ return {
 		cmd = { "TroubleToggle", "Trouble" },
 		opts = { use_diagnostic_signs = true },
 		keys = {
-			{ "<leader>xx", "<cmd>TroubleToggle document_diagnostics<cr>", desc = "Document Diagnostics (Trouble)" },
-			{ "<leader>xX", "<cmd>TroubleToggle workspace_diagnostics<cr>", desc = "Workspace Diagnostics (Trouble)" },
-			{ "<leader>xL", "<cmd>TroubleToggle loclist<cr>", desc = "Location List (Trouble)" },
-			{ "<leader>xQ", "<cmd>TroubleToggle quickfix<cr>", desc = "Quickfix List (Trouble)" },
+ 			{ "<leader>td", "<cmd>TroubleToggle document_diagnostics<cr>", desc = "Document Diagnostics (Trouble)" },
+			{ "<leader>tx", "<cmd>TroubleToggle workspace_diagnostics<cr>", desc = "Workspace Diagnostics (Trouble)" },
+			{ "<leader>tl", "<cmd>TroubleToggle loclist<cr>", desc = "Location List (Trouble)" },
+			{ "<leader>tq", "<cmd>TroubleToggle quickfix<cr>", desc = "Quickfix List (Trouble)" },
 			{
 				"[q",
 				function()

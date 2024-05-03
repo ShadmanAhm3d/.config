@@ -21,14 +21,14 @@ return {
 				lua = { "stylua" },
 				python = { "isort", "black" },
 			},
-			format_on_save = {
+			--[[ format_on_save = {
 				lsp_fallback = true,
 				async = false,
 				timeout_ms = 1000,
-			},
+			}, ]]
 		})
 
-		vim.keymap.set({ "n", "v" }, "<leader>mp", function()
+		vim.keymap.set({ "n", "v" }, "<leader>fe", function()
 			conform.format({
 				lsp_fallback = true,
 				async = false,
