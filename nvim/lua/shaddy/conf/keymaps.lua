@@ -73,6 +73,7 @@ keymap("n", "<leader>fo", ":Telescope oldfiles<CR>", opts)
 keymap("n", "<C-p>", ":Telescope find_files<CR>", opts)
 --CODE RUNNER
 keymap("n", "<leader>r", ":vsplit | term g++ %:p && ./a.out<CR>", opts)
+vim.api.nvim_set_keymap('n', '<leader>rp', ':vsplit | term python3 %<CR>', { noremap = true, silent = true })
 
 --minimalist
 
