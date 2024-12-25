@@ -11,13 +11,16 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
+--require("lazy").setup({{"nvim-treesitter/nvim-treesitter", build = ":TSUpdate"}})
 require("lazy").setup("shaddy.plugins")
 require("shaddy.conf.options")
 require("shaddy.conf.autocmds")
 require("shaddy.conf.keymaps")
+
 
 vim.api.nvim_create_autocmd("ColorScheme", {
 	pattern = "*",

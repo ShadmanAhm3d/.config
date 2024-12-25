@@ -33,8 +33,8 @@ vim.cmd([[  autocmd User AlphaReady set showtabline=0 | autocmd BufUnload <buffe
 
 --NOTE => Colors for the system
 
-vim.cmd([[ hi GitSignsAdd guibg=Normal guifg=yellow]])
-vim.api.nvim_set_hl(0, "GitSignsChange", { fg = "lime", bg = Normal })
+-- vim.cmd([[ hi GitSignsAdd guibg=Normal guifg=yellow]])
+--vim.api.nvim_set_hl(0, "GitSignsChange", { fg = "lime", bg = Normal })
 
 --vertsplit highlight off
 vim.cmd([[ hi SignColumn guibg=none]])

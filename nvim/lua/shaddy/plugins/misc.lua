@@ -52,8 +52,8 @@ return {
 			local hi_top_section = {
 				type = "text",
 				val = "╭────────────   Today is "
-					.. date
-					.. " ────────────╮",
+				    .. date
+				    .. " ────────────╮",
 				opts = {
 					position = "center",
 					hl = "Normal",
@@ -72,8 +72,8 @@ return {
 			local hi_bottom_section = {
 				type = "text",
 				val = "╰───══───══───══───  "
-					.. datetime
-					.. "  ───══───══───══────╯",
+				    .. datetime
+				    .. "  ───══───══───══────╯",
 				opts = {
 					position = "center",
 					hl = "Normal",
@@ -103,7 +103,8 @@ return {
 					hl_shortcut = "EcovimPrimary",
 				}
 				if keybind then
-					keybind_opts = if_nil(keybind_opts, { noremap = true, silent = true, nowait = true })
+					keybind_opts = if_nil(keybind_opts,
+						{ noremap = true, silent = true, nowait = true })
 					opts.keymap = { "n", sc_, keybind, keybind_opts }
 				end
 
@@ -344,7 +345,7 @@ return {
 	},
 
 	--gitsigns.nvim
-
+--[[
 	{
 		"lewis6991/gitsigns.nvim",
 		event = { "BufReadPost", "BufNewFile" },
@@ -391,7 +392,7 @@ return {
 			})
 		end,
 	},
-
+]]
 	--competitest.nvim
 	{
 		"xeluxee/competitest.nvim",
@@ -451,7 +452,7 @@ return {
 					vertical_layout = {
 						{ 0.5, "tc" },
 						{ 1.3, { { 1.3, "so" }, { 0.5, "eo" } } },
-						{ 1, { { 0.7, "si" }, { 0.5, "se" } } },
+						{ 1,   { { 0.7, "si" }, { 0.5, "se" } } },
 					},
 					total_height = 0.4,
 					horizontal_layout = {
@@ -493,6 +494,15 @@ return {
 		end,
 	},
 
+	{
+		'razak17/tailwind-fold.nvim',
+		opts = {},
+		dependencies = { 'nvim-treesitter/nvim-treesitter' },
+		ft = { 'html', 'svelte', 'astro', 'vue', 'typescriptreact', 'php', 'blade','javascriptreact' },
+	},
+
+
+
 	{ -- Autoformat
 		"stevearc/conform.nvim",
 		opts = {
@@ -510,7 +520,7 @@ return {
 			formatters_by_ft = {
 				lua = { "stylua" },
 				-- Conform can also run multiple formatters sequentially
-				 python = { "isort", "black" },
+				python = { "isort", "black" },
 				--
 				-- You can use a sub-list to tell conform to run *until* a formatter
 				-- is found.

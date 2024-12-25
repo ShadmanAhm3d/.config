@@ -1,5 +1,10 @@
 return {
 
+
+
+require("lazy").setup({{"nvim-treesitter/nvim-treesitter", build = ":TSUpdate"}}),
+
+
 --color schemes
 
 'martinsione/darkplus.nvim',
